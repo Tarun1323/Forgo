@@ -17,7 +17,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
 import com.aventstack.extentreports.util.Assert;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -654,10 +653,13 @@ public class Sales {
 		System.out.println("Number of status elements: " + statusElements.size());
 
 		for (WebElement statusElement : statusElements) {
+			Assert.assertEquals(statusElement.getText(), "Pending approval", "Status is not pending approval");
 			System.out.println("Status: " + statusElement.getText());
+
+			
         }
 	}
-
+	
 
 }
 
