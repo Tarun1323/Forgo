@@ -47,12 +47,12 @@ public class Sales {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		WebElement organizationElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("go_to_organisation")));
 		organizationElement.click();
-		WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
-		WebElement Sales=	wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[contains(@class,'menu-item')])[5]")));
+		WebElement Sales=	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[contains(@class,'menu-item')])[5]")));
 		Sales.click();
 	}
 	@Test(priority=1)
 	public void TC1() {
+		
 		driver.findElement(By.xpath("//button[@class='ant-btn ant-btn-primary ant-btn-compact-item ant-btn-compact-first-item']")).click();
 		driver.findElement(By.xpath("//input[@placeholder='Enter Customer Name']")).sendKeys("Varun");
 		driver.findElement(By.xpath("//input[@placeholder='Enter Company Name']")).sendKeys("run");
@@ -63,7 +63,6 @@ public class Sales {
 		actions.moveToElement(footer).perform();
 		driver.findElement(By.xpath("//div[@class='ant-select-item-option-content' and text()='INR']\r\n")).click();
 		driver.findElement(By.xpath("//button[@id='save']")).click();
-
 
 	}
 	@Test(priority=2,description="sort")
