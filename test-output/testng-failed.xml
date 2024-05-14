@@ -7,7 +7,7 @@
         <methods>
           <include name="setup"/>
           <include name="closebrowser"/>
-          <include name="Create_Expense"/>
+          <include name="Edit_Expense"/>
         </methods>
       </class> <!-- expenses.Expenses -->
     </classes>
