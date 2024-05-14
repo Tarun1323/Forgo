@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="loginforgo.WebTest">
+      <class name="expenses.Expenses">
         <methods>
-          <include name="testValidLogin"/>
           <include name="setup"/>
-          <include name="tearDown"/>
+          <include name="closebrowser"/>
+          <include name="Create_Expense"/>
         </methods>
-      </class> <!-- loginforgo.WebTest -->
+      </class> <!-- expenses.Expenses -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -1,4 +1,4 @@
-package loginforgo;
+package sales;
 
 import java.time.Duration;
 import java.util.List;
