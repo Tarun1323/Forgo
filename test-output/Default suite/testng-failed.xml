@@ -6,8 +6,10 @@
       <class name="expenses.Expenses">
         <methods>
           <include name="setup"/>
+          <include name="Expense_Filters"/>
+          <include name="Expense_Search"/>
           <include name="closebrowser"/>
-          <include name="Edit_Expense"/>
+          <include name="Expense_Sort"/>
         </methods>
       </class> <!-- expenses.Expenses -->
     </classes>

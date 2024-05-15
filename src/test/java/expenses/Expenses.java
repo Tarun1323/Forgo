@@ -11,6 +11,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -51,14 +53,14 @@ public class Expenses {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		WebElement organizationElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("go_to_organisation")));
 		organizationElement.click();
-		WebElement Expenses = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[contains(@class,'menu-item')])[6]")));
+		WebElement Expenses=	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[contains(@class,'menu-item')])[6]")));
 		Expenses.click();
 		
 		
 
 	}
 
-	@AfterClass()
+	@AfterMethod
 	public void closebrowser() throws InterruptedException {
 		Thread.sleep(3000);
 		driver.close();
@@ -151,7 +153,8 @@ public class Expenses {
 
 	@Test
 	public void Expense_Search() throws InterruptedException {
-
+		
+		Thread.sleep(2000);
 		WebElement search = driver.findElement(By.xpath("//input[@id='search-input']"));
 		search.sendKeys("25");
 		Thread.sleep(2000);
@@ -171,7 +174,7 @@ public class Expenses {
 
 		driver.findElement(By.xpath("//span[@class='anticon anticon-ellipsis pp-icon-25']")).click();
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("//span[text()='amount']")).click();
+		driver.findElement(By.xpath("//span[text()='amount']")).click(); 
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//span[@class='anticon anticon-ellipsis pp-icon-25']")).click();
 		Thread.sleep(2000);
