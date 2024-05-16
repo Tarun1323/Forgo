@@ -15,29 +15,15 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import forgo.genericUtility.JavaUtility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Expenses {
 
 	public WebDriver driver;
-
-	public static String generateRandomNumber(int length) {
-		if (length <= 0) {
-			throw new IllegalArgumentException("Length must be greater than 0");
-		}
-
-		Random random = new Random();
-
-		StringBuilder number = new StringBuilder();
-
-		number.append(random.nextInt(9) + 1);
-
-		for (int i = 1; i < length; i++) {
-			number.append(random.nextInt(10));
-		}
-
-		return number.toString();
-	}
+	
+	JavaUtility jUtil = new JavaUtility();
 
 	@BeforeMethod
 	public void setup() {
@@ -71,7 +57,7 @@ public class Expenses {
 
 		driver.findElement(By.xpath("//span[text()='Add New']")).click();
 		Thread.sleep(1000);
-		driver.findElement(By.name("amount_cents")).sendKeys(generateRandomNumber(4));
+		driver.findElement(By.name("amount_cents")).sendKeys(jUtil.generateRandomNumber(4));
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//div[@class='ant-picker-input']")).click();
 		Thread.sleep(1000);
@@ -111,7 +97,7 @@ public class Expenses {
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='Edit']")).click();
 		Thread.sleep(1000);
-		String s = generateRandomNumber(3);
+		String s = jUtil.generateRandomNumber(3);
 		driver.findElement(By.name("amount_cents")).sendKeys(s);
 		Thread.sleep(1000);
 	    //driver.findElement(By.xpath("//span[text()='Save and Close']")).click();
