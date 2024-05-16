@@ -3,15 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="expenses.Expenses">
+      <class name="expenses.Reports">
         <methods>
           <include name="setup"/>
-          <include name="Expense_Filters"/>
-          <include name="Expense_Search"/>
           <include name="closebrowser"/>
-          <include name="Expense_Sort"/>
+          <include name="Unlink_Expense_From_Report"/>
         </methods>
-      </class> <!-- expenses.Expenses -->
+      </class> <!-- expenses.Reports -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

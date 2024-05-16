@@ -31,7 +31,6 @@ public class Expenses {
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get("https://dashboard.forgocards.com/");
-		//driver.get("https://ems-web.finmeadows.com/");
 		driver.findElement(By.xpath("//input[@id='email']")).sendKeys("admin.fi@yopmail.com");
 		driver.findElement(By.id("password")).sendKeys("Spend@123");
 		driver.findElement(By.xpath("//button[contains(text(),'Login')]")).click();
