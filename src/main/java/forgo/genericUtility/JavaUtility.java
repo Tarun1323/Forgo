@@ -8,6 +8,12 @@ import java.util.Random;
  * @author Nagarjuna
  */
 public class JavaUtility {
+	
+	/**
+	 * This method will generate randam number of given length and return the valuue
+	 * @param length
+	 * @return
+	 */
 
 	public String generateRandomNumber(int length) {
 		if (length <= 0) {
