@@ -1,5 +1,6 @@
 package expenses;
 
+import java.io.IOException;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
@@ -13,11 +14,13 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import forgo.genericUtility.WebDriverUtility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Reports {
 	
 	public WebDriver driver;
+	WebDriverUtility wUtil = new WebDriverUtility();
 	
 	@BeforeMethod
 	public void setup() {
@@ -77,28 +80,33 @@ public class Reports {
 	}
 	
 	@Test
-	public void Report_Approvals_Filters() throws InterruptedException {
+	public void Report_Approvals_Filters() throws InterruptedException, IOException {
 		
 		driver.findElement(By.xpath("//span[text()='Add Filters']")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='Pending Approval']")).click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
+		wUtil.takeScreenShot(driver, "Pending Approval");
 		driver.findElement(By.xpath("//span[text()='Pending Approval']")).click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath("//span[text()='Pending Reimbursements']")).click();
 		Thread.sleep(1000);
+		wUtil.takeScreenShot(driver, "Pending Reimbursements");
 		driver.findElement(By.xpath("//span[text()='Pending Reimbursements']")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='Approved']")).click();
 		Thread.sleep(1000);
+		wUtil.takeScreenShot(driver, "Approved");
 		driver.findElement(By.xpath("//span[text()='Approved']")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='Rejected']")).click();
 		Thread.sleep(1000);
+		wUtil.takeScreenShot(driver, "Rejected");
 		driver.findElement(By.xpath("//span[text()='Rejected']")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='Reimbursed']")).click();
 		Thread.sleep(1000);
+		wUtil.takeScreenShot(driver, "Reimbursed");
 		driver.findElement(By.xpath("//span[text()='Reimbursed']")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='All Reports']")).click();
