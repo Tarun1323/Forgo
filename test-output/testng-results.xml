@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-05-08T15:40:08 IST" name="Default suite" finished-at="2024-05-08T15:40:17 IST" duration-ms="8582">
+  <suite started-at="2024-05-16T19:58:13 IST" name="Default suite" finished-at="2024-05-16T19:58:32 IST" duration-ms="19351">
     <groups>
     </groups>
-    <test started-at="2024-05-08T15:40:08 IST" name="Default test" finished-at="2024-05-08T15:40:17 IST" duration-ms="8582">
-      <class name="expenses.Expenses">
-        <test-method is-config="true" signature="setup()[pri:0, instance:expenses.Expenses@2ed2d9cb]" started-at="2024-05-08T15:40:08 IST" name="setup" finished-at="2024-05-08T15:40:13 IST" duration-ms="5379" status="PASS">
+    <test started-at="2024-05-16T19:58:13 IST" name="Default test" finished-at="2024-05-16T19:58:32 IST" duration-ms="19351">
+      <class name="loginforgo.Sales">
+        <test-method is-config="true" signature="setup()[pri:0, instance:loginforgo.Sales@4e0ae11f]" started-at="2024-05-16T19:58:13 IST" name="setup" finished-at="2024-05-16T19:58:19 IST" duration-ms="6491" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="Create_Expense()[pri:0, instance:expenses.Expenses@2ed2d9cb]" started-at="2024-05-08T15:40:13 IST" name="Create_Expense" finished-at="2024-05-08T15:40:13 IST" duration-ms="7" status="PASS">
+        <test-method signature="TC77()[pri:0, instance:loginforgo.Sales@4e0ae11f]" started-at="2024-05-16T19:58:19 IST" name="TC77" description="Creat Delivery Challan" finished-at="2024-05-16T19:58:29 IST" duration-ms="9674" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Create_Expense -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:expenses.Expenses@2ed2d9cb]" started-at="2024-05-08T15:40:13 IST" name="teardown" finished-at="2024-05-08T15:40:17 IST" duration-ms="3164" status="PASS">
+        </test-method> <!-- TC77 -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:loginforgo.Sales@4e0ae11f]" started-at="2024-05-16T19:58:29 IST" name="teardown" finished-at="2024-05-16T19:58:32 IST" duration-ms="3149" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
-      </class> <!-- expenses.Expenses -->
+      </class> <!-- loginforgo.Sales -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
