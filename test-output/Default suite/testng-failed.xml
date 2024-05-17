@@ -3,29 +3,17 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-<<<<<<< HEAD
-      <class name="loginforgo.Sales">
-=======
       <class name="expenses.Reports">
->>>>>>> branch 'master' of https://github.com/Tarun1323/Forgo.git
         <methods>
-<<<<<<< HEAD
-          <include name="TC77"/>
-=======
->>>>>>> branch 'master' of https://github.com/Tarun1323/Forgo.git
-          <include name="setup"/>
-<<<<<<< HEAD
-          <include name="teardown"/>
-=======
-          <include name="closebrowser"/>
+          <include name="acConfig"/>
+          <include name="bsConfig"/>
+          <include name="bcConfig"/>
           <include name="Unlink_Expense_From_Report"/>
->>>>>>> branch 'master' of https://github.com/Tarun1323/Forgo.git
+          <include name="amConfig"/>
+          <include name="bmConfig"/>
+          <include name="asConfig"/>
         </methods>
-<<<<<<< HEAD
-      </class> <!-- loginforgo.Sales -->
-=======
       </class> <!-- expenses.Reports -->
->>>>>>> branch 'master' of https://github.com/Tarun1323/Forgo.git
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

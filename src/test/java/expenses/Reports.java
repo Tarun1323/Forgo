@@ -8,53 +8,18 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import forgo.genericUtility.BaseClass;
 import forgo.genericUtility.JavaUtility;
 import forgo.genericUtility.WebDriverUtility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class Reports {
-
-	public WebDriver driver;
-	WebDriverUtility wUtil = new WebDriverUtility();
-	JavaUtility jUtil = new JavaUtility();
-
-	@BeforeMethod
-	public void setup() {
-		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.get("https://dashboard.forgocards.com/");
-		// driver.get("https://ems-web.finmeadows.com/");
-		driver.findElement(By.xpath("//input[@id='email']")).sendKeys("admin.fi@yopmail.com");
-		driver.findElement(By.id("password")).sendKeys("Spend@123");
-		driver.findElement(By.xpath("//button[contains(text(),'Login')]")).click();
-
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		WebElement organizationElement = wait
-				.until(ExpectedConditions.visibilityOfElementLocated(By.className("go_to_organisation")));
-		organizationElement.click();
-		WebElement Expenses = wait.until(
-				ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[contains(@class,'menu-item')])[6]")));
-		Expenses.click();
-
-		WebElement Reports = wait
-				.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Reports']")));
-		Reports.click();
-
-	}
-
-	@AfterMethod
-	public void closebrowser() throws InterruptedException {
-		Thread.sleep(3000);
-		driver.close();
-	}
+public class Reports extends BaseClass{;
 
 	@Test
 
@@ -118,6 +83,17 @@ public class Reports {
 
 	@Test
 	public void Report_Approvals_Search() throws InterruptedException {
+		
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		
+		WebElement Expenses = wait.until(
+				ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[contains(@class,'menu-item')])[6]")));
+		Expenses.click();
+
+		WebElement Reports = wait
+				.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Reports']")));
+		Reports.click();
+
 
 		Thread.sleep(2000);
 		WebElement search = driver.findElement(By.xpath("//input[@id='search-input']"));
