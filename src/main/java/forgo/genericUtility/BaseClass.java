@@ -16,7 +16,6 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
-
 import forgo.ObjectRepository.DashBoard;
 import forgo.ObjectRepository.LoginPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -55,13 +54,15 @@ public class BaseClass {
 	}
 	
 	@BeforeMethod
-	public void bmConfig() throws IOException, InterruptedException {
+	public void bmlConfig() throws IOException, InterruptedException {
 		
 		String Email = pUtil.readDataFromPropertyFile("email");
 		String Password = pUtil.readDataFromPropertyFile("password");
+		
 		LoginPage lp = new LoginPage(driver);
 		lp.login(Email, Password);
 		
+		driver.findElement(By.xpath("(//button[@class='go_to_organisation'])[1]")).click();
 		Reporter.log("----Login Successfull----", true);
 	}
 	
@@ -69,7 +70,7 @@ public class BaseClass {
 	public void amConfig()
 	{
 		
-		DashBoard db = new DashBoard();
+		DashBoard db = new DashBoard(driver);
 		db.logout();
 		Reporter.log("----logout sucessfull----", true);
 	}

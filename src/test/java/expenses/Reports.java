@@ -19,7 +19,7 @@ import forgo.genericUtility.JavaUtility;
 import forgo.genericUtility.WebDriverUtility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class Reports extends BaseClass{;
+public class Reports extends BaseClass{
 
 	@Test
 
@@ -82,35 +82,27 @@ public class Reports extends BaseClass{;
 	}
 
 	@Test
-	public void Report_Approvals_Search() throws InterruptedException {
+	public void Report_Approvals_Search() throws InterruptedException, IOException {
 		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		
-		WebElement Expenses = wait.until(
-				ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[contains(@class,'menu-item')])[6]")));
-		Expenses.click();
-
-		WebElement Reports = wait
-				.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Reports']")));
-		Reports.click();
-
-
-		Thread.sleep(2000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		
+		driver.findElement(By.xpath("//span[text()='Reports']")).click();
+		
 		WebElement search = driver.findElement(By.xpath("//input[@id='search-input']"));
 		search.sendKeys("25");
-		Thread.sleep(2000);
+		Thread.sleep(1000);
+		wUtil.takeScreenShot(driver, "ID");
 		search.sendKeys(Keys.CONTROL, "a", Keys.DELETE);
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		search.sendKeys("Nag");
-		Thread.sleep(2000);
+		wUtil.takeScreenShot(driver, "Employee Name");
 		search.sendKeys(Keys.CONTROL, "a", Keys.DELETE);
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		search.sendKeys("check");
-		Thread.sleep(2000);
+		wUtil.takeScreenShot(driver, "Report Name");
 		search.sendKeys(Keys.CONTROL, "a", Keys.DELETE);
-		Thread.sleep(2000);
-		search.sendKeys("Test");
-		search.sendKeys(Keys.CONTROL, "a", Keys.DELETE);
+		Thread.sleep(1000);
 	}
 
 	@Test

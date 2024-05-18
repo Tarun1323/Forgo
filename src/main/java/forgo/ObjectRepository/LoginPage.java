@@ -7,15 +7,15 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
 
-	@FindBy(xpath = "//input[@id='email']")
+	@FindBy(id = "email")
 
 	private WebElement emailText;
 
-	@FindBy(xpath = "//input[@id='password']")
+	@FindBy(id = "password")
 
 	private WebElement passwordText;
 
-	@FindBy(className = "loginButton primaryButton")
+	@FindBy(xpath = "//button[@type='submit']")
 
 	private WebElement loginBtn;
 
@@ -42,12 +42,10 @@ public class LoginPage {
 	 * @param password
 	 * @throws InterruptedException 
 	 */
-	public void login(String Email, String Password) {
+	public void login(String email, String password) {
 		
-		emailText.sendKeys(Email);
-		
-		passwordText.sendKeys(Password);
-		
+		emailText.sendKeys(email);
+		passwordText.sendKeys(password);
 		loginBtn.click();
 	}
 }
