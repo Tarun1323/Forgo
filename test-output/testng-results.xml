@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="5" total="6" passed="1" failed="0" skipped="0">
+<testng-results ignored="9" total="10" passed="1" failed="0" skipped="0">
   <reporter-output>
     <line>
       <![CDATA[----Database connected Successfully----]]>
@@ -11,60 +11,128 @@
       <![CDATA[----Login Successfull----]]>
     </line>
     <line>
-      <![CDATA[----logout sucessfull----]]>
-    </line>
-    <line>
-      <![CDATA[----browser Closed Successfull----]]>
-    </line>
-    <line>
       <![CDATA[----Database Closed Successfull----]]>
     </line>
   </reporter-output>
-  <suite started-at="2024-05-20T11:56:00 IST" name="Default suite" finished-at="2024-05-20T11:56:17 IST" duration-ms="16371">
+  <suite started-at="2024-05-20T19:17:42 IST" name="Default suite" finished-at="2024-05-20T19:17:54 IST" duration-ms="12274">
     <groups>
     </groups>
-    <test started-at="2024-05-20T11:56:00 IST" name="Default test" finished-at="2024-05-20T11:56:17 IST" duration-ms="16371">
+    <test started-at="2024-05-20T19:17:42 IST" name="Default test" finished-at="2024-05-20T19:17:54 IST" duration-ms="12274">
       <class name="expenses.Reports">
-        <test-method is-config="true" signature="bsConfig()[pri:0, instance:expenses.Reports@229c6181]" started-at="2024-05-20T11:56:00 IST" name="bsConfig" finished-at="2024-05-20T11:56:00 IST" duration-ms="10" status="PASS">
+        <test-method is-config="true" signature="bsConfig()[pri:0, instance:expenses.Reports@791f145a]" started-at="2024-05-20T19:17:42 IST" name="bsConfig" finished-at="2024-05-20T19:17:42 IST" duration-ms="10" status="PASS">
           <reporter-output>
             <line>
               <![CDATA[----Database connected Successfully----]]>
             </line>
           </reporter-output>
         </test-method> <!-- bsConfig -->
-        <test-method is-config="true" signature="bcConfig()[pri:0, instance:expenses.Reports@229c6181]" started-at="2024-05-20T11:56:00 IST" name="bcConfig" finished-at="2024-05-20T11:56:06 IST" duration-ms="5402" status="PASS">
+        <test-method is-config="true" signature="bcConfig()[pri:0, instance:expenses.Reports@791f145a]" started-at="2024-05-20T19:17:42 IST" name="bcConfig" finished-at="2024-05-20T19:17:44 IST" duration-ms="1968" status="PASS">
           <reporter-output>
             <line>
               <![CDATA[----browser launched Successfully----]]>
             </line>
           </reporter-output>
         </test-method> <!-- bcConfig -->
-        <test-method is-config="true" signature="bmlConfig()[pri:0, instance:expenses.Reports@229c6181]" started-at="2024-05-20T11:56:06 IST" name="bmlConfig" finished-at="2024-05-20T11:56:07 IST" duration-ms="1392" status="PASS">
+        <test-method is-config="true" signature="bmlConfig()[pri:0, instance:expenses.Reports@791f145a]" started-at="2024-05-20T19:17:44 IST" name="bmlConfig" finished-at="2024-05-20T19:17:48 IST" duration-ms="4347" status="PASS">
           <reporter-output>
             <line>
               <![CDATA[----Login Successfull----]]>
             </line>
           </reporter-output>
         </test-method> <!-- bmlConfig -->
-        <test-method signature="Report_Approvals_Search()[pri:0, instance:expenses.Reports@229c6181]" started-at="2024-05-20T11:56:07 IST" name="Report_Approvals_Search" finished-at="2024-05-20T11:56:15 IST" duration-ms="8266" status="PASS">
+        <test-method signature="REP_TC_001()[pri:0, instance:expenses.Reports@791f145a]" started-at="2024-05-20T19:17:48 IST" name="REP_TC_001" description="Reimburse_Report" finished-at="2024-05-20T19:17:53 IST" duration-ms="4772" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Report_Approvals_Search -->
-        <test-method is-config="true" signature="amConfig()[pri:0, instance:expenses.Reports@229c6181]" started-at="2024-05-20T11:56:15 IST" name="amConfig" finished-at="2024-05-20T11:56:16 IST" duration-ms="1134" status="PASS">
+        </test-method> <!-- REP_TC_001 -->
+        <test-method is-config="true" signature="amConfig()[pri:0, instance:expenses.Reports@791f145a]" started-at="2024-05-20T19:17:53 IST" name="amConfig" finished-at="2024-05-20T19:17:54 IST" duration-ms="1115" status="FAIL">
+          <exception class="org.openqa.selenium.ElementClickInterceptedException">
+            <message>
+              <![CDATA[element click intercepted: Element <span class="user-name">...</span> is not clickable at point (1515, 52). Other element would receive the click: <div tabindex="-1" class="ant-modal-wrap">...</div>
+  (Session info: chrome=124.0.6367.203)
+Build info: version: '4.19.1', revision: 'abe0ee07dc'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [175424d5b46d267ba15f0c38e075446b, clickElement {id=f.15AB5C2BC7DC1789CF0A4532790A8EDD.d.E3A3A0728525FF4E16E4BEE52B5F0FD1.e.292}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 124.0.6367.203, chrome: {chromedriverVersion: 124.0.6367.207 (a9001a6e39f..., userDataDir: C:\Users\Dell\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51688}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51688/devtoo..., se:cdpVersion: 124.0.6367.203, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (175424d5b46d267ba15f0c38e075446b)] -> class name: user-name]
+Session ID: 175424d5b46d267ba15f0c38e075446b]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <span class="user-name">...</span> is not clickable at point (1515, 52). Other element would receive the click: <div tabindex="-1" class="ant-modal-wrap">...</div>
+  (Session info: chrome=124.0.6367.203)
+Build info: version: '4.19.1', revision: 'abe0ee07dc'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [175424d5b46d267ba15f0c38e075446b, clickElement {id=f.15AB5C2BC7DC1789CF0A4532790A8EDD.d.E3A3A0728525FF4E16E4BEE52B5F0FD1.e.292}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 124.0.6367.203, chrome: {chromedriverVersion: 124.0.6367.207 (a9001a6e39f..., userDataDir: C:\Users\Dell\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51688}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51688/devtoo..., se:cdpVersion: 124.0.6367.203, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (175424d5b46d267ba15f0c38e075446b)] -> class name: user-name]
+Session ID: 175424d5b46d267ba15f0c38e075446b
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+at jdk.proxy2/jdk.proxy2.$Proxy17.click(Unknown Source)
+at forgo.ObjectRepository.DashBoard.logout(DashBoard.java:41)
+at forgo.genericUtility.BaseClass.amConfig(BaseClass.java:68)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
+at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:385)
+at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:321)
+at org.testng.internal.TestInvoker.runConfigMethods(TestInvoker.java:700)
+at org.testng.internal.TestInvoker.runAfterGroupsConfigurations(TestInvoker.java:676)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:660)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
           <reporter-output>
-            <line>
-              <![CDATA[----logout sucessfull----]]>
-            </line>
           </reporter-output>
         </test-method> <!-- amConfig -->
-        <test-method is-config="true" signature="acConfig()[pri:0, instance:expenses.Reports@229c6181]" started-at="2024-05-20T11:56:16 IST" name="acConfig" finished-at="2024-05-20T11:56:17 IST" duration-ms="133" status="PASS">
+        <test-method is-config="true" signature="acConfig()[pri:0, instance:expenses.Reports@791f145a]" started-at="2024-05-20T19:17:54 IST" name="acConfig" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1716212874549" status="SKIP">
           <reporter-output>
-            <line>
-              <![CDATA[----browser Closed Successfull----]]>
-            </line>
           </reporter-output>
         </test-method> <!-- acConfig -->
-        <test-method is-config="true" signature="asConfig()[pri:0, instance:expenses.Reports@229c6181]" started-at="2024-05-20T11:56:17 IST" name="asConfig" finished-at="2024-05-20T11:56:17 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="asConfig()[pri:0, instance:expenses.Reports@791f145a]" started-at="2024-05-20T19:17:54 IST" name="asConfig" finished-at="2024-05-20T19:17:54 IST" duration-ms="0" status="PASS">
           <reporter-output>
             <line>
               <![CDATA[----Database Closed Successfull----]]>
