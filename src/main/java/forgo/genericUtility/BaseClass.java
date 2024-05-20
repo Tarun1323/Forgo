@@ -67,7 +67,7 @@ public class BaseClass {
 	}
 	
 	@AfterMethod
-	public void amConfig()
+	public void amConfig() throws InterruptedException
 	{
 		
 		DashBoard db = new DashBoard(driver);

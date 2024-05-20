@@ -8,8 +8,8 @@
           <include name="acConfig"/>
           <include name="bsConfig"/>
           <include name="bcConfig"/>
+          <include name="Report_Approvals_Filters"/>
           <include name="amConfig"/>
-          <include name="Report_Approvals_Search"/>
           <include name="asConfig"/>
           <include name="bmlConfig"/>
         </methods>
