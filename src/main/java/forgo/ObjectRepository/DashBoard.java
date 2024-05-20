@@ -33,11 +33,13 @@ public DashBoard(WebDriver driver) {
 
 	/**
 	 * This method will perform logout 
+	 * @throws InterruptedException 
 	 */
-	public void logout()
+	public void logout() throws InterruptedException
 	
 	{
 		userNameDrop.click();
+		Thread.sleep(1000);
 		logoutBtn.click();
 	}
 }

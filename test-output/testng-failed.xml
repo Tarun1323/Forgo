@@ -8,8 +8,12 @@
           <include name="acConfig"/>
           <include name="bsConfig"/>
           <include name="bcConfig"/>
+          <include name="Report_Approvals_Filters"/>
           <include name="amConfig"/>
+<<<<<<< HEAD
           <include name="TC55"/>
+=======
+>>>>>>> branch 'master' of https://github.com/Tarun1323/Forgo.git
           <include name="asConfig"/>
           <include name="bmlConfig"/>
         </methods>

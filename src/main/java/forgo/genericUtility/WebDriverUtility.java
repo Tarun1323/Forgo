@@ -43,15 +43,10 @@ public class WebDriverUtility {
 
 		TakesScreenshot ts = (TakesScreenshot) driver;
 		File src = ts.getScreenshotAs(OutputType.FILE);
-
 		String path = ".\\ScreenShots\\" + screenShotName + ".png";
-
 		File dst = new File(path);
-
 		FileUtils.copyFile(src, dst);
-
 		return dst.getAbsolutePath();
-
 	}
 
 }
