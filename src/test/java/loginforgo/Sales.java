@@ -1045,8 +1045,331 @@ public void TC69() throws InterruptedException {
             }
     		
     		}
+        @Test(description="	To verify user is able to search the Credit Note by reference number")
+    	public void TC78() throws InterruptedException{
+    		driver.findElement(By.xpath("//span[text()='Delivery Challan']")).click();
+    		driver.findElement(By.xpath("//span[text()='My Delivery']")).click();
+    		driver.findElement(By.xpath("//input[@id='search-input']")).sendKeys("07667");
+    		Thread.sleep(1000);
+    		try {
+                File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+                FileUtils.copyFile(screenshotFile, new File("C:\\Users\\koppu\\Downloads\\Selenium Screen shots\\Dc searsch by reference NO.jpg"));
+                System.out.println("Aprove screenshot saved successfully!");
+            } catch (Exception e) {
+                System.out.println("Failed to capture screenshot: " + e.getMessage());
+            }
+    		
+        }
+        @Test(description="	To verify user is able to search the Credit Note by customer name")
+    	public void TC79() throws InterruptedException{
+    		driver.findElement(By.xpath("//span[text()='Delivery Challan']")).click();
+    		driver.findElement(By.xpath("//span[text()='My Delivery']")).click();
+    		driver.findElement(By.xpath("//input[@id='search-input']")).sendKeys("anil");
+    		Thread.sleep(1000);
+    		try {
+                File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+                FileUtils.copyFile(screenshotFile, new File("C:\\Users\\koppu\\Downloads\\Selenium Screen shots\\Dc search by customer name.jpg"));
+                System.out.println("Aprove screenshot saved successfully!");
+            } catch (Exception e) {
+                System.out.println("Failed to capture screenshot: " + e.getMessage());
+            }
+    		
+        }
+        @Test(description="	To verify user is able to search the Credit Note by Delivery Chalana NO")
+    	public void TC80() throws InterruptedException{
+    		driver.findElement(By.xpath("//span[text()='Delivery Challan']")).click();
+    		driver.findElement(By.xpath("//span[text()='My Delivery']")).click();
+    		driver.findElement(By.xpath("//input[@id='search-input']")).sendKeys("DC_05");
+    		Thread.sleep(1000);
+    		try {
+                File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+                FileUtils.copyFile(screenshotFile, new File("C:\\Users\\koppu\\Downloads\\Selenium Screen shots\\Dc search by Delivery Chalana NO.jpg"));
+                System.out.println("Aprove screenshot saved successfully!");
+            } catch (Exception e) {
+                System.out.println("Failed to capture screenshot: " + e.getMessage());
+            }
+        }	
+        @Test(description="	To verify user is able to search the Credit Note after applied any sort option")
+    	public void TC81() throws InterruptedException{
+    		driver.findElement(By.xpath("//span[text()='Delivery Challan']")).click();
+    		driver.findElement(By.xpath("//span[text()='My Delivery']")).click();
+    		driver.findElement(By.xpath("//span[@class='anticon anticon-ellipsis pp-icon-25']")).click();
+    		Thread.sleep(1000);
+    		driver.findElement(By.xpath("//span[text()='Date']")).click();
+    		Thread.sleep(1000);
+    		try {
+                File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+                FileUtils.copyFile(screenshotFile, new File("C:\\Users\\koppu\\Downloads\\Selenium Screen shots\\Dc Sort by date.jpg"));
+                System.out.println("Aprove screenshot saved successfully!");
+            } catch (Exception e) {
+                System.out.println("Failed to capture screenshot: " + e.getMessage());
+            }
+        
+        }
+        @Test(description="	To Verify the detail page of Credit Note")
+    	public void TC82() throws InterruptedException{
+    		driver.findElement(By.xpath("//span[text()='Delivery Challan']")).click();
+    		driver.findElement(By.xpath("//span[text()='My Delivery']")).click();
+    		Thread.sleep(1000);
+    		driver.findElement(By.xpath("(//tr[@class='ant-table-row ant-table-row-level-0'])[1]")).click();
+    		Thread.sleep(1000);
+    		try {
+                File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+                FileUtils.copyFile(screenshotFile, new File("C:\\Users\\koppu\\Downloads\\Selenium Screen shots\\Dc detail page.jpg"));
+                System.out.println("Aprove screenshot saved successfully!");
+            } catch (Exception e) {
+                System.out.println("Failed to capture screenshot: " + e.getMessage());
+            }
+}
+        @Test(description="	To Verify that user is able to Edit the Existing Credit Note")
+    	public void TC83() throws InterruptedException{
+    		driver.findElement(By.xpath("//span[text()='Delivery Challan']")).click();
+    		driver.findElement(By.xpath("//span[text()='My Delivery']")).click();
+    		Thread.sleep(1000);
+    		driver.findElement(By.xpath("(//tr[@class='ant-table-row ant-table-row-level-0'])[1]")).click();
+    		Thread.sleep(1000);
+    		driver.findElement(By.xpath("//span[text()='Edit']")).click();
+    		Thread.sleep(1000);
+
+        try {
+            File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            FileUtils.copyFile(screenshotFile, new File("C:\\Users\\koppu\\Downloads\\Selenium Screen shots\\Edit DC.jpg"));
+            System.out.println("Aprove screenshot saved successfully!");
+        } catch (Exception e) {
+            System.out.println("Failed to capture screenshot: " + e.getMessage());
+        }
+        }
+        @Test(description="	To verify Submit Button")
+    	public void TC84() throws InterruptedException{
+    		driver.findElement(By.xpath("//span[text()='Delivery Challan']")).click();
+    		driver.findElement(By.xpath("//span[text()='My Delivery']")).click();
+    		Thread.sleep(1000);
+    		driver.findElement(By.xpath("(//tr[@class='ant-table-row ant-table-row-level-0'])[1]")).click();
+    		Thread.sleep(1000);
+    		driver.findElement(By.xpath("//span[text()='Submit']")).click();
+    		Thread.sleep(1000);
+
+        try {
+            File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            FileUtils.copyFile(screenshotFile, new File("C:\\Users\\koppu\\Downloads\\Selenium Screen shots\\submit button .jpg"));
+            System.out.println("Aprove screenshot saved successfully!");
+        } catch (Exception e) {
+            System.out.println("Failed to capture screenshot: " + e.getMessage());
+        }
+        }
+        @Test(description="	To Verify Items Tab in Credit Note Detail Page")
+    	public void TC85() throws InterruptedException{
+    		driver.findElement(By.xpath("//span[text()='Delivery Challan']")).click();
+    		driver.findElement(By.xpath("//span[text()='My Delivery']")).click();
+    		Thread.sleep(1000);
+    		driver.findElement(By.xpath("(//tr[@class='ant-table-row ant-table-row-level-0'])[1]")).click();
+    		Thread.sleep(1000);
+    		driver.findElement(By.xpath("//li[text()='Items']")).click();
+    		Thread.sleep(1000);
+
+            try {
+                File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+                FileUtils.copyFile(screenshotFile, new File("C:\\Users\\koppu\\Downloads\\Selenium Screen shots\\DC-Item Tab  .jpg"));
+                System.out.println("Aprove screenshot saved successfully!");
+            } catch (Exception e) {
+                System.out.println("Failed to capture screenshot: " + e.getMessage());
+            }
+            
+
+        }
+        @Test(description="	To Verify Comments Tab in Credit Note Detail Page")
+    	public void TC86() throws InterruptedException{
+    		driver.findElement(By.xpath("//span[text()='Delivery Challan']")).click();
+    		driver.findElement(By.xpath("//span[text()='My Delivery']")).click();
+    		Thread.sleep(1000);
+    		driver.findElement(By.xpath("(//tr[@class='ant-table-row ant-table-row-level-0'])[1]")).click();
+    		Thread.sleep(1000);
+    		driver.findElement(By.xpath("//li[text()='Comments']")).click();
+    		driver.findElement(By.xpath("//input[@class='ant-input']")).sendKeys("asdf");
+    		driver.findElement(By.xpath("//span[text()='Send']")).click();
+    		Thread.sleep(1000);
+
+            try {
+                File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+                FileUtils.copyFile(screenshotFile, new File("C:\\Users\\koppu\\Downloads\\Selenium Screen shots\\DC-Comment Tab  .jpg"));
+                System.out.println("Aprove screenshot saved successfully!");
+            } catch (Exception e) {
+                System.out.println("Failed to capture screenshot: " + e.getMessage());
+            }
+            
+
+        }
+        @Test(description="To Verify History Tab in Credit Note Detail Page")
+    	public void TC87() throws InterruptedException{
+    		driver.findElement(By.xpath("//span[text()='Delivery Challan']")).click();
+    		driver.findElement(By.xpath("//span[text()='My Delivery']")).click();
+    		Thread.sleep(1000);
+    		driver.findElement(By.xpath("(//tr[@class='ant-table-row ant-table-row-level-0'])[1]")).click();
+    		Thread.sleep(1000);
+    		driver.findElement(By.xpath("//li[text()='History']")).click();
+    		Thread.sleep(1000);
+
+            try {
+                File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+                FileUtils.copyFile(screenshotFile, new File("C:\\Users\\koppu\\Downloads\\Selenium Screen shots\\DC-History  Tab  .jpg"));
+                System.out.println("Aprove screenshot saved successfully!");
+            } catch (Exception e) {
+                System.out.println("Failed to capture screenshot: " + e.getMessage());
+            }
+            
+
+        }
+        @Test(description="To Verify filter")
+    	public void TC88() throws InterruptedException{
+    		driver.findElement(By.xpath("//span[text()='Delivery Challan']")).click();
+        	driver.findElement(By.xpath("//span[text()='My Delivery']")).click();
+        	Thread.sleep(1000);
+        	driver.findElement(By.xpath("//span[text()='Add Filters']")).click();
+        	Thread.sleep(1000);
+        	driver.findElement(By.xpath("(//span[@class='ant-dropdown-menu-title-content'])[3]")).click();
+        	Thread.sleep(1000);
+        	try {
+            File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            FileUtils.copyFile(screenshotFile, new File("C:\\Users\\koppu\\Downloads\\Selenium Screen shots\\DC-Filters Tab  .jpg"));
+            System.out.println("Aprove screenshot saved successfully!");
+                 }
+        	catch (Exception e) {
+            System.out.println("Failed to capture screenshot: " + e.getMessage());
         }
         
+}
+        @Test(description="To Verify Payments Recived	")
+    	public void TC89() throws InterruptedException{
+    		driver.findElement(By.xpath("//span[text()='Payments Received']")).click();
+    		try {
+                File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+                FileUtils.copyFile(screenshotFile, new File("C:\\Users\\koppu\\Downloads\\Selenium Screen shots\\Payments Recived.jpg"));
+                System.out.println("screenshot saved successfully!");
+                     }
+            	catch (Exception e) {
+                System.out.println("Failed to capture screenshot: " + e.getMessage());
+            }
+        
+}
+        @Test(description="To Verify Payments Recived-Add filters")
+    	public void TC90() throws InterruptedException{
+    		driver.findElement(By.xpath("//span[text()='Payments Received']")).click();
+    		driver.findElement(By.xpath("//span[text()='Add Filters']")).click();
+    		Thread.sleep(1000);
+    		driver.findElement(By.xpath("//span[text()='Partially Paid']")).click();
+    		Thread.sleep(1000);
+
+    		try {
+                File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+                FileUtils.copyFile(screenshotFile, new File("C:\\Users\\koppu\\Downloads\\Selenium Screen shots\\Payments Recived-Add filters.jpg"));
+                System.out.println("screenshot saved successfully!");
+                     }
+            	catch (Exception e) {
+                System.out.println("Failed to capture screenshot: " + e.getMessage());
+            }
+        }
+        @Test(description="To Verify Payments Recived- Search by CustomerName")
+    	public void TC91() throws InterruptedException{
+    		driver.findElement(By.xpath("//span[text()='Payments Received']")).click();
+    		driver.findElement(By.xpath("//input[@id='search-input']")).sendKeys("Nagarjuna");
+    		Thread.sleep(1000);
+
+    		try {
+                File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+                FileUtils.copyFile(screenshotFile, new File("C:\\Users\\koppu\\Downloads\\Selenium Screen shots\\Payments Recived-search by CustomerName.jpg"));
+                System.out.println("screenshot saved successfully!");
+                     }
+            	catch (Exception e) {
+                System.out.println("Failed to capture screenshot: " + e.getMessage());
+            }
+        }
+        @Test(description="To Verify Payments Recived- Search by InoviceNo")
+    	public void TC92() throws InterruptedException{
+    		driver.findElement(By.xpath("//span[text()='Payments Received']")).click();
+    		driver.findElement(By.xpath("//input[@id='search-input']")).sendKeys("INV_23");
+    		Thread.sleep(1000);
+
+    		try {
+                File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+                FileUtils.copyFile(screenshotFile, new File("C:\\Users\\koppu\\Downloads\\Selenium Screen shots\\Payments Recived-search by InoviceNo.jpg"));
+                System.out.println("screenshot saved successfully!");
+                     }
+            	catch (Exception e) {
+                System.out.println("Failed to capture screenshot: " + e.getMessage());
+            }
+        }
+        @Test(description="To Verify Payments Recived- sort by by Date")
+    	public void TC93() throws InterruptedException{
+    		driver.findElement(By.xpath("//span[text()='Payments Received']")).click();
+    		driver.findElement(By.xpath("//span[@class='anticon anticon-ellipsis pp-icon-25']")).click();
+    		Thread.sleep(1000);
+    		driver.findElement(By.xpath("//span[text()='Date']")).click();
+    		Thread.sleep(1000);
+    		try {
+                File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+                FileUtils.copyFile(screenshotFile, new File("C:\\Users\\koppu\\Downloads\\Selenium Screen shots\\Payments Recived-sort by Date.jpg"));
+                System.out.println("screenshot saved successfully!");
+                     }
+            	catch (Exception e) {
+                System.out.println("Failed to capture screenshot: " + e.getMessage());
+            }
+    		
+}
+        @Test(description="To Verify Payments Recived- sort by by CustomerName")
+    	public void TC94() throws InterruptedException{
+    		driver.findElement(By.xpath("//span[text()='Payments Received']")).click();
+    		driver.findElement(By.xpath("//span[@class='anticon anticon-ellipsis pp-icon-25']")).click();
+    		Thread.sleep(1000);
+    		driver.findElement(By.xpath("//span[text()='Customer Name']")).click();
+    		Thread.sleep(1000);
+    		try {
+                File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+                FileUtils.copyFile(screenshotFile, new File("C:\\Users\\koppu\\Downloads\\Selenium Screen shots\\Payments Recived-sort by CustomerName.jpg"));
+                System.out.println("screenshot saved successfully!");
+                     }
+            	catch (Exception e) {
+                System.out.println("Failed to capture screenshot: " + e.getMessage());
+            }
+    		
+}
+        
+        @Test(description="To Verify Payments Recived- sort by by Mode")
+    	public void TC95() throws InterruptedException{
+    		driver.findElement(By.xpath("//span[text()='Payments Received']")).click();
+    		driver.findElement(By.xpath("//span[@class='anticon anticon-ellipsis pp-icon-25']")).click();
+    		Thread.sleep(1000);
+    		driver.findElement(By.xpath("//span[text()='Mode']")).click();
+    		Thread.sleep(1000);
+    		try {
+                File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+                FileUtils.copyFile(screenshotFile, new File("C:\\Users\\koppu\\Downloads\\Selenium Screen shots\\Payments Recived-sort by Mode.jpg"));
+                System.out.println("screenshot saved successfully!");
+                     }
+            	catch (Exception e) {
+                System.out.println("Failed to capture screenshot: " + e.getMessage());
+            }
+    		
+}
+        @Test(description="To Verify Payments Recived- sort by by Amount")
+    	public void TC96() throws InterruptedException{
+    		driver.findElement(By.xpath("//span[text()='Payments Received']")).click();
+    		driver.findElement(By.xpath("//span[@class='anticon anticon-ellipsis pp-icon-25']")).click();
+    		Thread.sleep(1000);
+    		driver.findElement(By.xpath("//span[text()='Amount']")).click();
+    		Thread.sleep(1000);
+    		try {
+                File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+                FileUtils.copyFile(screenshotFile, new File("C:\\Users\\koppu\\Downloads\\Selenium Screen shots\\Payments Recived-sort by Amount.jpg"));
+                System.out.println("screenshot saved successfully!");
+                     }
+            	catch (Exception e) {
+                System.out.println("Failed to capture screenshot: " + e.getMessage());
+            }
+    		
+}
+}
+
+
     
 
 
