@@ -2,6 +2,8 @@ package forgo.genericUtility;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -25,6 +27,18 @@ public class WebDriverUtility {
 	 * @throws IOException
 	 */
 
+	public void maximiseWindow(WebDriver driver) {
+		
+		driver.manage().window().maximize();
+		
+	}
+	
+	public void waitForElementsToLoadInDOM(WebDriver driver) {
+		
+		
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		
+	}
 	public String takeScreenShot(WebDriver driver, String screenShotName) throws IOException {
 
 		TakesScreenshot ts = (TakesScreenshot) driver;
