@@ -1,7 +1,10 @@
 package forgo.genericUtility;
 
 import java.io.IOException;
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'master' of https://github.com/PurpleplumTech/ems_test_automation
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -30,7 +33,6 @@ public class BaseClass {
 	public ExcelFileUtility eUtil = new ExcelFileUtility();
 	public WebDriver driver = null;
 	
-	
 	@BeforeSuite
 	public void bsConfig() {
 		
@@ -54,7 +56,11 @@ public class BaseClass {
 		
 		String Email = pUtil.readDataFromPropertyFile("email");
 		String Password = pUtil.readDataFromPropertyFile("password");
+<<<<<<< HEAD
 		Thread.sleep(2000);
+=======
+		Thread.sleep(1000);
+>>>>>>> branch 'master' of https://github.com/PurpleplumTech/ems_test_automation
 		LoginPage lp = new LoginPage(driver);
 		lp.login(Email, Password);
 		

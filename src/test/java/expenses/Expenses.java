@@ -1,59 +1,22 @@
 package expenses;
 
-import java.time.Duration;
-import java.util.Random;
+
+import java.io.IOException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import forgo.genericUtility.BaseClass;
 
-import forgo.genericUtility.JavaUtility;
-import io.github.bonigarcia.wdm.WebDriverManager;
+public class Expenses extends BaseClass {
 
-public class Expenses {
-
-	public WebDriver driver;
 	
-	JavaUtility jUtil = new JavaUtility();
-
-	@BeforeMethod
-	public void setup() {
-		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.get("https://dashboard.forgocards.com/");
-		driver.findElement(By.xpath("//input[@id='email']")).sendKeys("admin.fi@yopmail.com");
-		driver.findElement(By.id("password")).sendKeys("Spend@123");
-		driver.findElement(By.xpath("//button[contains(text(),'Login')]")).click();
-
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		WebElement organizationElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("go_to_organisation")));
-		organizationElement.click();
-		WebElement Expenses=	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[contains(@class,'menu-item')])[6]")));
-		Expenses.click();
+	@Test(description = "Create_Expense")
+	public void EXP_TC_001() throws InterruptedException {
 		
-		
-
-	}
-
-	@AfterMethod
-	public void closebrowser() throws InterruptedException {
-		Thread.sleep(3000);
-		driver.close();
-	}
-
-	@Test
-	public void Create_Expense() throws InterruptedException {
-
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
 		driver.findElement(By.xpath("//span[text()='Add New']")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.name("amount_cents")).sendKeys(jUtil.generateRandomNumber(4));
@@ -80,36 +43,41 @@ public class Expenses {
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//input[@class='ant-input'])[2]")).sendKeys("Automation Testing");
 		Thread.sleep(1000);
-		// driver.findElement(By.xpath("//span[text()='Save and Close']")).click();
-		driver.findElement(By.xpath("//span[text()='Cancel']")).click();
+		driver.findElement(By.xpath("//span[text()='Save and Close']")).click();
+		//driver.findElement(By.xpath("//span[text()='Cancel']")).click();
 
 	}
 
-	@Test
-	public void Edit_Expense() throws InterruptedException {
-		Thread.sleep(2000);
-		JavascriptExecutor js = (JavascriptExecutor)driver;
+	@Test(description = "Edit_Expense")
+	public void EXP_TC_002() throws InterruptedException {
 		
-		js.executeScript("document.querySelector(\"div[style$='overflow: auto hidden;']\").scrollLeft= 50");
-		Thread.sleep(2000);
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("document.querySelector(\"div[style$='overflow: auto hidden;']\").scrollLeft= 150");
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//div[text()='saved'])[1]")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='Edit']")).click();
 		Thread.sleep(1000);
 		String s = jUtil.generateRandomNumber(3);
-		driver.findElement(By.name("amount_cents")).sendKeys(s);
+		WebElement amount = driver.findElement(By.name("amount_cents"));
+		amount.sendKeys(Keys.CONTROL, "a", Keys.DELETE);
+		amount.sendKeys(s);
 		Thread.sleep(1000);
-	    //driver.findElement(By.xpath("//span[text()='Save and Close']")).click();
+	    driver.findElement(By.xpath("//span[text()='Save and Close']")).click();
+	    //driver.findElement(By.xpath("//span[text()='Cancel']")).click();
 	    
 	}
 
-	@Test
-	public void Expense_Filters() throws InterruptedException {
-
+	@Test(description = "Expense_Filters")
+	public void EXP_TC_003() throws InterruptedException {
+		
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
 		driver.findElement(By.xpath("//span[text()='Add Filters']")).click();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='Saved']")).click();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='Saved']")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='Reported']")).click();
@@ -136,39 +104,64 @@ public class Expenses {
 
 	}
 
-	@Test
-	public void Expense_Search() throws InterruptedException {
+	@Test(description = "Expense_Search")
+	public void EXP_TC_004() throws InterruptedException, IOException {
 		
-		Thread.sleep(2000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		Thread.sleep(1000);
 		WebElement search = driver.findElement(By.xpath("//input[@id='search-input']"));
-		search.sendKeys("25");
-		Thread.sleep(2000);
+		search.sendKeys("77");
+		Thread.sleep(1000);
+		wUtil.takeScreenShot(driver, "ID" + " " + jUtil.getSystemDateInFormat());
 		search.sendKeys(Keys.CONTROL, "a", Keys.DELETE);
-		Thread.sleep(2000);
-		search.sendKeys("Zomato");
-		Thread.sleep(2000);
+		Thread.sleep(1000);
+		search.sendKeys("Naga");
+		Thread.sleep(1000);
+		wUtil.takeScreenShot(driver, "Employee Name" + " " + jUtil.getSystemDateInFormat());
 		search.sendKeys(Keys.CONTROL, "a", Keys.DELETE);
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		search.sendKeys("Test");
-		Thread.sleep(2000);
+		Thread.sleep(1000);
+		wUtil.takeScreenShot(driver, "Report Name" + " " + jUtil.getSystemDateInFormat());
 		search.sendKeys(Keys.CONTROL, "a", Keys.DELETE);
+		Thread.sleep(1000);
 	}
 
-	@Test
-	public void Expense_Sort() throws InterruptedException {
-
+	@Test(description = "Expense_Sort")
+	public void EXP_TC_005() throws InterruptedException {
+		
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
 		driver.findElement(By.xpath("//span[@class='anticon anticon-ellipsis pp-icon-25']")).click();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='amount']")).click(); 
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[@class='anticon anticon-ellipsis pp-icon-25']")).click();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='transaction date']")).click();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[@class='anticon anticon-ellipsis pp-icon-25']")).click();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='merchant name']")).click();
 
+	}
+	
+	@Test(description = "Add_Expense_To_Report")
+	public void EXP_TC_006() throws InterruptedException{
+		
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		Thread.sleep(1000);
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("document.querySelector(\"div[style$='overflow: auto hidden;']\").scrollLeft= 150");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[text()='saved'])[1]")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='Add to Report']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//input[@class='ant-radio-input'])[1]")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//span[text()='Add to Report'])[2]")).click();
+		Thread.sleep(1000);
 	}
 
 }
