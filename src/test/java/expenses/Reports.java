@@ -20,37 +20,38 @@ import forgo.genericUtility.WebDriverUtility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Reports extends BaseClass {
-
 	
-	@Test(description = "Reimburse_Report")
+	@Test(description = "Approve_Report")
 	public void REP_TC_001() throws InterruptedException, IOException {
 		
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
 		driver.findElement(By.xpath("//span[text()='Reports']")).click();
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("(//div[@class='status status_pending_reimbursement'])[1]")).click();
+		driver.findElement(By.xpath("(//div[@class='status status_pending_approval'])[1]")).click();
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("//button[@class='approve']")).click();
-		Thread.sleep(1000);
+		//driver.findElement(By.xpath("//button[@class='approve']")).click();
+		
 	}
-
-	@Test(description = "Reject_Report_In_Prnding_Reimbursement")
+	
+	@Test(description = "Reject_Report")
 	public void REP_TC_002() throws InterruptedException, IOException {
 		
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
 		driver.findElement(By.xpath("//span[text()='Reports']")).click();
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("(//div[@class='status status_pending_reimbursement'])[1]")).click();
+		driver.findElement(By.xpath("(//div[@class='status status_pending_approval'])[1]")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//button[@class='reject']")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath(" //textarea[@class='ant-input reasonTextArea']")).sendKeys("Reject Reason-Automation");
-		driver.findElement(By.xpath("//span[text()='Confirm']")).click();
+		//driver.findElement(By.xpath("//span[text()='Confirm']")).click();
+		driver.findElement(By.xpath("//span[text()='Cancel']")).click();
 	}
 	
-	@Test(description = "Reject_Report_In_Prnding_Approval")
+	
+	@Test(description = "Reimburse_Report")
 	public void REP_TC_003() throws InterruptedException, IOException {
 		
 		Thread.sleep(1000);
@@ -60,11 +61,26 @@ public class Reports extends BaseClass {
 		driver.findElement(By.xpath("(//div[@class='status status_pending_reimbursement'])[1]")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//button[@class='approve']")).click();
+		
+	}
+
+	
+	@Test(description = "Reject_Report_In_Prnding_Approval")
+	public void REP_TC_004() throws InterruptedException, IOException {
+		
 		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		driver.findElement(By.xpath("//span[text()='Reports']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[@class='status status_pending_reimbursement'])[1]")).click();
+		Thread.sleep(1000);
+		//driver.findElement(By.xpath("//button[@class='approve']")).click();
+		driver.findElement(By.xpath("//span[text()='Cancel']")).click();
+		
 	}
 	
 	@Test(description = "Report_Approvals_Filters")
-	public void REP_TC_004() throws InterruptedException, IOException {
+	public void REP_TC_005() throws InterruptedException, IOException {
 
 		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
 		driver.findElement(By.xpath("//span[text()='Reports']")).click();
@@ -101,7 +117,7 @@ public class Reports extends BaseClass {
 	}
 
 	@Test(description = "Report_Approvals_Search")
-	public void REP_TC_005() throws InterruptedException, IOException {
+	public void REP_TC_006() throws InterruptedException, IOException {
 
 		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
 		driver.findElement(By.xpath("//span[text()='Reports']")).click();
@@ -125,7 +141,7 @@ public class Reports extends BaseClass {
 	}
 
 	@Test(description = "Report_Approvals_Sort")
-	public void REP_TC_006() throws InterruptedException {
+	public void REP_TC_007() throws InterruptedException {
 
 		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
 		driver.findElement(By.xpath("//span[text()='Reports']")).click();
@@ -146,7 +162,7 @@ public class Reports extends BaseClass {
 	
 	@Test(description = "Create_Report")
 
-	public void REP_TC_007() throws InterruptedException {
+	public void REP_TC_008() throws InterruptedException {
 
 		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
 		driver.findElement(By.xpath("//span[text()='Reports']")).click();
@@ -167,7 +183,7 @@ public class Reports extends BaseClass {
 	}
 
 	@Test(description = "Add_Expense_In_Report")
-	public void REP_TC_008() throws InterruptedException {
+	public void REP_TC_009() throws InterruptedException {
 
 		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
 		driver.findElement(By.xpath("//span[text()='Reports']")).click();
@@ -213,7 +229,7 @@ public class Reports extends BaseClass {
 	}
 
 	@Test(description = "Unlink_Expense_From_Report")
-	public void REP_TC_009() throws InterruptedException {
+	public void REP_TC_010() throws InterruptedException {
 		
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
@@ -237,7 +253,7 @@ public class Reports extends BaseClass {
 	}
 	
 	@Test(description = "My_Reports_Filters")
-	public void REP_TC_010() throws InterruptedException, IOException {
+	public void REP_TC_011() throws InterruptedException, IOException {
 
 		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
 		driver.findElement(By.xpath("//span[text()='Reports']")).click();
@@ -276,7 +292,7 @@ public class Reports extends BaseClass {
 	}
 
 	@Test(description = "My_Reports_Search")
-	public void REP_TC_011() throws InterruptedException, IOException {
+	public void REP_TC_012() throws InterruptedException, IOException {
 
 		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
 		driver.findElement(By.xpath("//span[text()='Reports']")).click();
@@ -301,7 +317,7 @@ public class Reports extends BaseClass {
 	}
 
 	@Test(description = "My_Reports_Sort")
-	public void REP_TC_012() throws InterruptedException {
+	public void REP_TC_013() throws InterruptedException {
 
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
@@ -323,10 +339,5 @@ public class Reports extends BaseClass {
 
 	}
 	
-	
-
-	
-	
-
 
 }
