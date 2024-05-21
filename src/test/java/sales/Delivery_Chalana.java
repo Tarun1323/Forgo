@@ -1,6 +1,7 @@
 package sales;
 
 import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 
 import org.apache.commons.io.FileUtils;
@@ -18,38 +19,15 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import forgo.genericUtility.BaseClass;
 import io.github.bonigarcia.wdm.WebDriverManager;
-public class Delivery_Chalana {
-	public WebDriver driver;
-
-	@BeforeMethod
-	public void setup() {
-		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.get("https://dashboard.forgocards.com/");
-
-
-
-		driver.get("https://dashboard.forgocards.com/");
-		WebElement emailField = driver.findElement(By.xpath("//input[@id='email']"));
-		WebElement passwordField = driver.findElement(By.id("password"));
-
-		emailField.sendKeys("admin.fi@yopmail.com");
-		passwordField.sendKeys("Spend@123");
-		WebElement loginButton = driver.findElement(By.xpath("//button[contains(text(),'Login')]"));
-		loginButton.click();
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		WebElement organizationElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("go_to_organisation")));
-		organizationElement.click();
-		WebElement Sales=	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[contains(@class,'menu-item')])[5]")));
-		Sales.click();
-	}
-
-
+public class Delivery_Chalana extends BaseClass {
 
 	@Test(description="Creat Delivery Challan")
 	public void TC77() throws InterruptedException{
+		
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
 		driver.findElement(By.xpath("//span[text()='Delivery Challan']")).click();
 		driver.findElement(By.xpath("//span[text()='My Delivery']")).click();
 		driver.findElement(By.xpath("//span[text()='Add New']")).click();
@@ -101,6 +79,8 @@ public class Delivery_Chalana {
 	}
 	@Test(description="	To verify user is able to search the DC by reference number")
 	public void TC78() throws InterruptedException{
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
 		driver.findElement(By.xpath("//span[text()='Delivery Challan']")).click();
 		driver.findElement(By.xpath("//span[text()='My Delivery']")).click();
 		driver.findElement(By.xpath("//input[@id='search-input']")).sendKeys("07667");
@@ -116,6 +96,8 @@ public class Delivery_Chalana {
 	}
 	@Test(description="	To verify user is able to search the Credit Note by customer name")
 	public void TC79() throws InterruptedException{
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
 		driver.findElement(By.xpath("//span[text()='Delivery Challan']")).click();
 		driver.findElement(By.xpath("//span[text()='My Delivery']")).click();
 		driver.findElement(By.xpath("//input[@id='search-input']")).sendKeys("anil");
@@ -131,6 +113,8 @@ public class Delivery_Chalana {
 	}
 	@Test(description="	To verify user is able to search the Credit Note by Delivery Chalana NO")
 	public void TC80() throws InterruptedException{
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
 		driver.findElement(By.xpath("//span[text()='Delivery Challan']")).click();
 		driver.findElement(By.xpath("//span[text()='My Delivery']")).click();
 		driver.findElement(By.xpath("//input[@id='search-input']")).sendKeys("DC_05");
@@ -145,6 +129,8 @@ public class Delivery_Chalana {
 	}	
 	@Test(description="	To verify user is able to search the Credit Note after applied any sort option")
 	public void TC81() throws InterruptedException{
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
 		driver.findElement(By.xpath("//span[text()='Delivery Challan']")).click();
 		driver.findElement(By.xpath("//span[text()='My Delivery']")).click();
 		driver.findElement(By.xpath("//span[@class='anticon anticon-ellipsis pp-icon-25']")).click();
@@ -162,6 +148,8 @@ public class Delivery_Chalana {
 	}
 	@Test(description="	To Verify the detail page of Credit Note")
 	public void TC82() throws InterruptedException{
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
 		driver.findElement(By.xpath("//span[text()='Delivery Challan']")).click();
 		driver.findElement(By.xpath("//span[text()='My Delivery']")).click();
 		Thread.sleep(1000);
@@ -177,6 +165,8 @@ public class Delivery_Chalana {
 	}
 	@Test(description="	To Verify that user is able to Edit the Existing Credit Note")
 	public void TC83() throws InterruptedException{
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
 		driver.findElement(By.xpath("//span[text()='Delivery Challan']")).click();
 		driver.findElement(By.xpath("//span[text()='My Delivery']")).click();
 		Thread.sleep(1000);
@@ -195,6 +185,8 @@ public class Delivery_Chalana {
 	}
 	@Test(description="	To verify Submit Button")
 	public void TC84() throws InterruptedException{
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
 		driver.findElement(By.xpath("//span[text()='Delivery Challan']")).click();
 		driver.findElement(By.xpath("//span[text()='My Delivery']")).click();
 		Thread.sleep(1000);
@@ -213,6 +205,8 @@ public class Delivery_Chalana {
 	}
 	@Test(description="	To Verify Items Tab in Credit Note Detail Page")
 	public void TC85() throws InterruptedException{
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
 		driver.findElement(By.xpath("//span[text()='Delivery Challan']")).click();
 		driver.findElement(By.xpath("//span[text()='My Delivery']")).click();
 		Thread.sleep(1000);
@@ -233,6 +227,8 @@ public class Delivery_Chalana {
 	}
 	@Test(description="	To Verify Comments Tab in Credit Note Detail Page")
 	public void TC86() throws InterruptedException{
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
 		driver.findElement(By.xpath("//span[text()='Delivery Challan']")).click();
 		driver.findElement(By.xpath("//span[text()='My Delivery']")).click();
 		Thread.sleep(1000);
@@ -255,6 +251,8 @@ public class Delivery_Chalana {
 	}
 	@Test(description="To Verify History Tab in Credit Note Detail Page")
 	public void TC87() throws InterruptedException{
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
 		driver.findElement(By.xpath("//span[text()='Delivery Challan']")).click();
 		driver.findElement(By.xpath("//span[text()='My Delivery']")).click();
 		Thread.sleep(1000);
@@ -275,6 +273,8 @@ public class Delivery_Chalana {
 	}
 	@Test(description="To Verify filter")
 	public void TC88() throws InterruptedException{
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
 		driver.findElement(By.xpath("//span[text()='Delivery Challan']")).click();
 		driver.findElement(By.xpath("//span[text()='My Delivery']")).click();
 		Thread.sleep(1000);
@@ -291,11 +291,48 @@ public class Delivery_Chalana {
 			System.out.println("Failed to capture screenshot: " + e.getMessage());
 		}
 	}
-	@AfterMethod()
-	public void teardown() throws InterruptedException {
-		Thread.sleep(3000);
-		driver.close();
-
+		@Test(description="To Verify Approval filters for DC")
+		public void TC89() throws InterruptedException, IOException{
+			Thread.sleep(1000);
+			driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
+			driver.findElement(By.xpath("//span[text()='Delivery Challan']")).click();
+			driver.findElement(By.xpath("(//span[text()='Add Filters'])[1]")).click();
+			Thread.sleep(1000);
+			driver.findElement(By.xpath("//span[text()='Approved']")).click();
+			wUtil.takeScreenShot(driver,"Approved");
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("//span[text()='Approved']")).click();
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("//span[text()='Pending Approval']")).click();
+			wUtil.takeScreenShot(driver,"Pending Approval");
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("//span[text()='Pending Approval']")).click();
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("//span[text()='Rejected']")).click();
+			wUtil.takeScreenShot(driver,"Rejected");
+			Thread.sleep(2000);
+	
 	}
+		@Test(description="To Verify Approval search for DC")
+		public void TC90() throws InterruptedException, IOException{
+			Thread.sleep(1000);
+			driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
+			driver.findElement(By.xpath("//span[text()='Delivery Challan']")).click();
+			WebElement searchElement=driver.findElement(By.xpath("//input[@class='ant-input ant-input-lg']"));
+			searchElement.sendKeys("07667");
+			Thread.sleep(1000);
+			wUtil.takeScreenShot(driver,"Search by RF_num");
+			searchElement.sendKeys(Keys.CONTROL, "a", Keys.DELETE);
+			Thread.sleep(1000);
+			searchElement.sendKeys("anil");
+			Thread.sleep(1000);
+			wUtil.takeScreenShot(driver,"Search by cutomer_name");
+			Thread.sleep(1000);
+			searchElement.sendKeys(Keys.CONTROL, "a", Keys.DELETE);
+			Thread.sleep(1000);
+			searchElement.sendKeys("DC_03");
+			Thread.sleep(1000);
+			wUtil.takeScreenShot(driver,"Search by DC");	
+		}
 }
 

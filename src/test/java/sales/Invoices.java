@@ -9,7 +9,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
@@ -31,6 +30,8 @@ public class Invoices extends BaseClass {
 	}
 	@Test(description="Details Invoices")
 	public void TC56() throws InterruptedException{
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
 		driver.findElement(By.xpath("//span[text()='Sales Order']")).click();
 		driver.findElement(By.xpath("//span[text()='Invoices']")).click();
 		driver.findElement(By.xpath("//span[text()='My Invoices']")).click();
@@ -38,6 +39,8 @@ public class Invoices extends BaseClass {
 	}
 	@Test(description="Creat New Invoice")
 	public void TC57() throws InterruptedException{
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
 		driver.findElement(By.xpath("//span[text()='Sales Order']")).click();
 		driver.findElement(By.xpath("//span[text()='Invoices']")).click();
 		driver.findElement(By.xpath("//span[text()='My Invoices']")).click();
@@ -81,6 +84,8 @@ public class Invoices extends BaseClass {
 	}
 	@Test(description="Add Filters")
 	public void TC58() throws InterruptedException {
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
 		driver.findElement(By.xpath("//span[text()='Sales Order']")).click();
 		driver.findElement(By.xpath("//span[text()='Invoices']")).click();
 		driver.findElement(By.xpath("//span[text()='My Invoices']")).click();
@@ -109,10 +114,11 @@ public class Invoices extends BaseClass {
 
 	@Test(description="invoice number")
 	public void TC59() throws InterruptedException {
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
 
 		driver.findElement(By.xpath("//span[text()='Sales Order']")).click();
 		driver.findElement(By.xpath("//span[text()='Invoices']")).click();
-		driver.findElement(By.xpath("//span[text()='My Invoices']")).click();
 		WebElement searchBox = driver.findElement(By.xpath("//input[@class='ant-input ant-input-lg']"));
 		searchBox.sendKeys("INV_0232");
 		List<WebElement> invoiceElements = driver.findElements(By.xpath("//td[@class='ant-table-cell']"));
@@ -135,8 +141,9 @@ public class Invoices extends BaseClass {
 	}
 
 	@Test(description="customer name")
-	public void TC60() {
-
+	public void TC60() throws InterruptedException {
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
 		navigateToMyInvoicesPage();
 
 		WebElement searchBox = driver.findElement(By.xpath("//input[@class='ant-input ant-input-lg']"));
@@ -168,7 +175,8 @@ public class Invoices extends BaseClass {
 
 	@Test(description="SO number")
 	public void TC61() throws InterruptedException {
-
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
 		driver.findElement(By.xpath("//span[text()='Sales Order']")).click();
 		driver.findElement(By.xpath("//span[text()='Invoices']")).click();
 		driver.findElement(By.xpath("//span[text()='My Invoices']")).click();
@@ -180,7 +188,8 @@ public class Invoices extends BaseClass {
 	}
 	@Test(description="Date")
 	public void TC62() throws InterruptedException {
-
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
 		driver.findElement(By.xpath("//span[text()='Sales Order']")).click();
 		driver.findElement(By.xpath("//span[text()='Invoices']")).click();
 		driver.findElement(By.xpath("//span[text()='My Invoices']")).click();
@@ -191,7 +200,8 @@ public class Invoices extends BaseClass {
 
 	@Test(description="Due Date")
 	public void TC63() throws InterruptedException {
-
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
 		driver.findElement(By.xpath("//span[text()='Sales Order']")).click();
 		driver.findElement(By.xpath("//span[text()='Invoices']")).click();
 		driver.findElement(By.xpath("//span[text()='My Invoices']")).click();
@@ -201,7 +211,8 @@ public class Invoices extends BaseClass {
 	}
 	@Test(description="Amount")
 	public void TC64() throws InterruptedException {
-
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
 		driver.findElement(By.xpath("//span[text()='Sales Order']")).click();
 		driver.findElement(By.xpath("//span[text()='Invoices']")).click();
 		driver.findElement(By.xpath("//span[text()='My Invoices']")).click();
@@ -212,7 +223,8 @@ public class Invoices extends BaseClass {
 	@SuppressWarnings("unused")
 	@Test(description="more option")
 	public void TC65() throws InterruptedException {
-
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
 		driver.findElement(By.xpath("//span[text()='Sales Order']")).click();
 		driver.findElement(By.xpath("//span[text()='Invoices']")).click();
 		driver.findElement(By.xpath("//span[text()='My Invoices']")).click();
@@ -224,7 +236,8 @@ public class Invoices extends BaseClass {
 	}
 	@Test(description="Send mail")
 	public void TC66() throws InterruptedException {
-
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
 		driver.findElement(By.xpath("//span[text()='Sales Order']")).click();
 		driver.findElement(By.xpath("//span[text()='Invoices']")).click();
 		driver.findElement(By.xpath("//span[text()='My Invoices']")).click();
@@ -245,7 +258,8 @@ public class Invoices extends BaseClass {
 	}
 	@Test(description="clone")
 	public void TC67() throws InterruptedException {
-
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
 		driver.findElement(By.xpath("//span[text()='Sales Order']")).click();
 		driver.findElement(By.xpath("//span[text()='Invoices']")).click();
 		driver.findElement(By.xpath("//span[text()='My Invoices']")).click();
@@ -266,7 +280,8 @@ public class Invoices extends BaseClass {
 	}
 	@Test(description="Delete")
 	public void TC68() throws InterruptedException {
-
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
 		driver.findElement(By.xpath("//span[text()='Sales Order']")).click();
 		driver.findElement(By.xpath("//span[text()='Invoices']")).click();
 		driver.findElement(By.xpath("//span[text()='My Invoices']")).click();
@@ -288,7 +303,8 @@ public class Invoices extends BaseClass {
 	}
 	@Test(description="Delete")
 	public void TC69() throws InterruptedException {
-
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
 		driver.findElement(By.xpath("//span[text()='Sales Order']")).click();
 		driver.findElement(By.xpath("//span[text()='Invoices']")).click();
 		driver.findElement(By.xpath("//span[text()='My Invoices']")).click();
@@ -310,7 +326,8 @@ public class Invoices extends BaseClass {
 
 	@Test(description="Approvals")
 	public void TC70() throws InterruptedException {
-
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
 		driver.findElement(By.xpath("//span[text()='Sales Order']")).click();
 		driver.findElement(By.xpath("//span[text()='Invoices']")).click();
 		driver.findElement(By.xpath("//span[text()='My Invoices']")).click();
@@ -330,7 +347,8 @@ public class Invoices extends BaseClass {
 	}
 	@Test(description="To Verify invoice  details")
 	public void TC71() throws InterruptedException {
-
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
 		driver.findElement(By.xpath("//span[text()='Sales Order']")).click();
 		driver.findElement(By.xpath("//span[text()='Invoices']")).click();
 		driver.findElement(By.xpath("//span[text()='My Invoices']")).click();
@@ -346,7 +364,8 @@ public class Invoices extends BaseClass {
 
 	@Test(description="To Verify invoice Items")
 	public void TC72() throws InterruptedException {
-
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
 		driver.findElement(By.xpath("//span[text()='Sales Order']")).click();
 		driver.findElement(By.xpath("//span[text()='Invoices']")).click();
 		driver.findElement(By.xpath("//span[text()='My Invoices']")).click();
@@ -362,7 +381,8 @@ public class Invoices extends BaseClass {
 	}
 	@Test(description="To Verify invoice PaymentsMade")
 	public void TC73() throws InterruptedException {
-
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
 		driver.findElement(By.xpath("//span[text()='Sales Order']")).click();
 		driver.findElement(By.xpath("//span[text()='Invoices']")).click();
 		driver.findElement(By.xpath("//span[text()='My Invoices']")).click();
@@ -378,7 +398,8 @@ public class Invoices extends BaseClass {
 	}
 	@Test(description="To Verify invoice Comments")
 	public void TC74() throws InterruptedException {
-
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
 		driver.findElement(By.xpath("//span[text()='Sales Order']")).click();
 		driver.findElement(By.xpath("//span[text()='Invoices']")).click();
 		driver.findElement(By.xpath("//span[text()='My Invoices']")).click();
@@ -397,7 +418,8 @@ public class Invoices extends BaseClass {
 	}
 	@Test(description="To Verify invoice History")
 	public void TC75() throws InterruptedException {
-
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
 		driver.findElement(By.xpath("//span[text()='Sales Order']")).click();
 		driver.findElement(By.xpath("//span[text()='Invoices']")).click();
 		driver.findElement(By.xpath("//span[text()='My Invoices']")).click();
@@ -413,7 +435,8 @@ public class Invoices extends BaseClass {
 	}
 	@Test(description="To Verify Filters")
 	public void TC76() throws InterruptedException {
-
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
 		driver.findElement(By.xpath("//span[text()='Sales Order']")).click();
 		driver.findElement(By.xpath("//span[text()='Invoices']")).click();
 		driver.findElement(By.xpath("//span[text()='My Invoices']")).click();

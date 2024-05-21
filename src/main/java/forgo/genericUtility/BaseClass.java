@@ -1,14 +1,10 @@
 package forgo.genericUtility;
 
 import java.io.IOException;
-import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -58,7 +54,7 @@ public class BaseClass {
 		
 		String Email = pUtil.readDataFromPropertyFile("email");
 		String Password = pUtil.readDataFromPropertyFile("password");
-		
+		Thread.sleep(2000);
 		LoginPage lp = new LoginPage(driver);
 		lp.login(Email, Password);
 		
