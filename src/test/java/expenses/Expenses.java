@@ -1,8 +1,6 @@
 package expenses;
 
-
 import java.io.IOException;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -45,6 +43,9 @@ public class Expenses extends BaseClass {
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='Save and Close']")).click();
 		//driver.findElement(By.xpath("//span[text()='Cancel']")).click();
+		Thread.sleep(1000);
+	    String message = driver.findElement(By.xpath("//span[@class='messageText']")).getText();
+		System.out.println(message);
 
 	}
 
@@ -56,17 +57,24 @@ public class Expenses extends BaseClass {
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 		js.executeScript("document.querySelector(\"div[style$='overflow: auto hidden;']\").scrollLeft= 150");
 		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		driver.findElement(By.xpath("//span[text()='Add Filters']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='Saved']")).click();
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//div[text()='saved'])[1]")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='Edit']")).click();
 		Thread.sleep(1000);
-		String s = jUtil.generateRandomNumber(3);
 		WebElement amount = driver.findElement(By.name("amount_cents"));
 		amount.sendKeys(Keys.CONTROL, "a", Keys.DELETE);
-		amount.sendKeys(s);
+		amount.sendKeys(jUtil.generateRandomNumber(3));
 		Thread.sleep(1000);
 	    driver.findElement(By.xpath("//span[text()='Save and Close']")).click();
 	    //driver.findElement(By.xpath("//span[text()='Cancel']")).click();
+	    Thread.sleep(1000);
+	    String message = driver.findElement(By.xpath("//span[@class='messageText']")).getText();
+		System.out.println(message);
 	    
 	}
 
@@ -162,6 +170,52 @@ public class Expenses extends BaseClass {
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//span[text()='Add to Report'])[2]")).click();
 		Thread.sleep(1000);
+	    String message = driver.findElement(By.xpath("//span[@class='messageText']")).getText();
+		System.out.println(message);
+		
+	}
+	
+	@Test(description = "Change_Report_In_Expense")
+	public void EXP_TC_007() throws InterruptedException{
+		
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		Thread.sleep(1000);
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("document.querySelector(\"div[style$='overflow: auto hidden;']\").scrollLeft= 150");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='Add Filters']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='Reported']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[@class='status status_reported'])[1]")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='Change Report']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//input[@class='ant-radio-input'])[1]")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//span[text()='Change Report'])[2]")).click();
+		Thread.sleep(1000);
+	    String message = driver.findElement(By.xpath("//span[@class='messageText']")).getText();
+		System.out.println(message);
+		
+	}
+	
+	@Test(description = "Comment_In_Expense")
+	public void EXP_TC_008() throws InterruptedException{
+		
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//tr[@class='ant-table-row ant-table-row-level-0'])[1]")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//li[text()='Comments']")).click();
+		driver.findElement(By.xpath("//input[@class='ant-input']")).sendKeys("Automation comments");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='Send']")).click();
+		Thread.sleep(1000);
+		String message = driver.findElement(By.xpath("//span[@class='messageText']")).getText();
+		System.out.println(message);
+		
 	}
 
+	
 }

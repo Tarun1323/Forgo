@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <testng-results ignored="0" total="7" passed="0" failed="0" skipped="7">
+=======
+<testng-results ignored="24" total="25" passed="1" failed="0" skipped="0">
+>>>>>>> branch 'master' of https://github.com/PurpleplumTech/ems_test_automation
   <reporter-output>
     <line>
       <![CDATA[----Database connected Successfully----]]>
@@ -11,25 +15,40 @@
       <![CDATA[----Database Closed Successfull----]]>
     </line>
   </reporter-output>
+<<<<<<< HEAD
   <suite started-at="2024-05-22T17:08:25 IST" name="Default suite" finished-at="2024-05-22T17:08:32 IST" duration-ms="6631">
+=======
+  <suite started-at="2024-05-21T17:25:08 IST" name="Default suite" finished-at="2024-05-21T17:25:30 IST" duration-ms="22318">
+>>>>>>> branch 'master' of https://github.com/PurpleplumTech/ems_test_automation
     <groups>
     </groups>
+<<<<<<< HEAD
     <test started-at="2024-05-22T17:08:25 IST" name="Default test" finished-at="2024-05-22T17:08:32 IST" duration-ms="6631">
       <class name="Purchases.Vendor">
         <test-method is-config="true" signature="bsConfig()[pri:0, instance:Purchases.Vendor@4bff7da0]" started-at="2024-05-22T17:08:25 IST" name="bsConfig" finished-at="2024-05-22T17:08:25 IST" duration-ms="9" status="PASS">
+=======
+    <test started-at="2024-05-21T17:25:08 IST" name="Default test" finished-at="2024-05-21T17:25:30 IST" duration-ms="22318">
+      <class name="expenses.Reports">
+        <test-method is-config="true" signature="bsConfig()[pri:0, instance:expenses.Reports@20140db9]" started-at="2024-05-21T17:25:08 IST" name="bsConfig" finished-at="2024-05-21T17:25:08 IST" duration-ms="8" status="PASS">
+>>>>>>> branch 'master' of https://github.com/PurpleplumTech/ems_test_automation
           <reporter-output>
             <line>
               <![CDATA[----Database connected Successfully----]]>
             </line>
           </reporter-output>
         </test-method> <!-- bsConfig -->
+<<<<<<< HEAD
         <test-method is-config="true" signature="bcConfig()[pri:0, instance:Purchases.Vendor@4bff7da0]" started-at="2024-05-22T17:08:25 IST" name="bcConfig" finished-at="2024-05-22T17:08:29 IST" duration-ms="3530" status="PASS">
+=======
+        <test-method is-config="true" signature="bcConfig()[pri:0, instance:expenses.Reports@20140db9]" started-at="2024-05-21T17:25:08 IST" name="bcConfig" finished-at="2024-05-21T17:25:12 IST" duration-ms="4773" status="PASS">
+>>>>>>> branch 'master' of https://github.com/PurpleplumTech/ems_test_automation
           <reporter-output>
             <line>
               <![CDATA[----browser launched Successfully----]]>
             </line>
           </reporter-output>
         </test-method> <!-- bcConfig -->
+<<<<<<< HEAD
         <test-method is-config="true" signature="bmlConfig()[pri:0, instance:Purchases.Vendor@4bff7da0]" started-at="2024-05-22T17:08:29 IST" name="bmlConfig" finished-at="2024-05-22T17:08:32 IST" duration-ms="3043" status="FAIL">
           <exception class="org.openqa.selenium.NoSuchWindowException">
             <message>
@@ -109,9 +128,13 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
           </exception> <!-- org.openqa.selenium.NoSuchWindowException -->
+=======
+        <test-method is-config="true" signature="bmlConfig()[pri:0, instance:expenses.Reports@20140db9]" started-at="2024-05-21T17:25:12 IST" name="bmlConfig" finished-at="2024-05-21T17:25:15 IST" duration-ms="2333" status="PASS">
+>>>>>>> branch 'master' of https://github.com/PurpleplumTech/ems_test_automation
           <reporter-output>
           </reporter-output>
         </test-method> <!-- bmlConfig -->
+<<<<<<< HEAD
         <test-method signature="VND_TC001()[pri:1, instance:Purchases.Vendor@4bff7da0]" started-at="2024-05-22T17:08:32 IST" name="VND_TC001" description="Vendor creation with mandiotry fields" finished-at="2024-05-22T17:08:32 IST" duration-ms="0" status="SKIP">
           <exception class="org.openqa.selenium.NoSuchWindowException">
             <message>
@@ -191,14 +214,26 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
           </exception> <!-- org.openqa.selenium.NoSuchWindowException -->
+=======
+        <test-method signature="REP_TC_023()[pri:0, instance:expenses.Reports@20140db9]" started-at="2024-05-21T17:25:15 IST" name="REP_TC_023" description="Download_Report_In_More_My_Report" finished-at="2024-05-21T17:25:29 IST" duration-ms="13933" status="PASS">
+>>>>>>> branch 'master' of https://github.com/PurpleplumTech/ems_test_automation
           <reporter-output>
           </reporter-output>
+<<<<<<< HEAD
         </test-method> <!-- VND_TC001 -->
         <test-method is-config="true" signature="amConfig()[pri:0, instance:Purchases.Vendor@4bff7da0]" started-at="2024-05-22T17:08:32 IST" name="amConfig" finished-at="2024-05-22T17:08:32 IST" duration-ms="0" status="SKIP">
+=======
+        </test-method> <!-- REP_TC_023 -->
+        <test-method is-config="true" signature="amConfig()[pri:0, instance:expenses.Reports@20140db9]" started-at="2024-05-21T17:25:29 IST" name="amConfig" finished-at="2024-05-21T17:25:30 IST" duration-ms="1150" status="PASS">
+>>>>>>> branch 'master' of https://github.com/PurpleplumTech/ems_test_automation
           <reporter-output>
           </reporter-output>
         </test-method> <!-- amConfig -->
+<<<<<<< HEAD
         <test-method is-config="true" signature="bmlConfig()[pri:0, instance:Purchases.Vendor@4bff7da0]" started-at="2024-05-22T17:08:32 IST" name="bmlConfig" finished-at="2024-05-22T17:08:32 IST" duration-ms="0" status="SKIP">
+=======
+        <test-method is-config="true" signature="acConfig()[pri:0, instance:expenses.Reports@20140db9]" started-at="2024-05-21T17:25:30 IST" name="acConfig" finished-at="2024-05-21T17:25:30 IST" duration-ms="88" status="PASS">
+>>>>>>> branch 'master' of https://github.com/PurpleplumTech/ems_test_automation
           <reporter-output>
           </reporter-output>
         </test-method> <!-- bmlConfig -->
@@ -742,7 +777,11 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- acConfig -->
+<<<<<<< HEAD
         <test-method is-config="true" signature="asConfig()[pri:0, instance:Purchases.Vendor@4bff7da0]" started-at="2024-05-22T17:08:32 IST" name="asConfig" finished-at="2024-05-22T17:08:32 IST" duration-ms="0" status="PASS">
+=======
+        <test-method is-config="true" signature="asConfig()[pri:0, instance:expenses.Reports@20140db9]" started-at="2024-05-21T17:25:30 IST" name="asConfig" finished-at="2024-05-21T17:25:30 IST" duration-ms="0" status="PASS">
+>>>>>>> branch 'master' of https://github.com/PurpleplumTech/ems_test_automation
           <reporter-output>
             <line>
               <![CDATA[----Database Closed Successfull----]]>
