@@ -21,6 +21,8 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Reports extends BaseClass {
 	
+	//Approvals Tab In Reports module
+	
 	@Test(description = "Approve_Report")
 	public void REP_TC_001() throws InterruptedException, IOException {
 		
@@ -61,7 +63,10 @@ public class Reports extends BaseClass {
 		driver.findElement(By.xpath("(//div[@class='status status_pending_reimbursement'])[1]")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//button[@class='approve']")).click();
-		
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[@class='ant-select-selector'])[2]")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//div[text()='Bank Transfer']")).click();
 	}
 
 	
@@ -160,9 +165,90 @@ public class Reports extends BaseClass {
 
 	}
 	
+	
+	@Test(description = "Share_Report_In_More_Report_Approvals")
+	public void REP_TC_008() throws InterruptedException {
+
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		driver.findElement(By.xpath("//span[text()='Reports']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//tr[@class='ant-table-row ant-table-row-level-0'])[1]")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//button[@class='ant-dropdown-trigger more']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='Share Report']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//input[@name='email']")).sendKeys("rajesh@yopmail.com");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='Submit']")).click();
+		Thread.sleep(1000);
+	    String message = driver.findElement(By.xpath("//span[@class='messageText']")).getText();
+		System.out.println(message);
+	}
+	
+	@Test(description = "Download_Report_In_More_Report_Approvals")
+	public void REP_TC_009() throws InterruptedException {
+
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		driver.findElement(By.xpath("//span[text()='Reports']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//tr[@class='ant-table-row ant-table-row-level-0'])[1]")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//button[@class='ant-dropdown-trigger more']")).click();
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//span[text()='Download PDF']")).click();
+		Thread.sleep(2000);
+		wUtil.switchToWindow(driver, "amazonaws");
+		driver.close();
+		Thread.sleep(2000);
+		wUtil.switchToWindow(driver, "expenses");
+	
+	}
+	
+	
+//	@Test(description = "Forward_Approval_In_More")
+//	public void REP_TC_010() throws InterruptedException {
+//
+//		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+//		driver.findElement(By.xpath("//span[text()='Reports']")).click();
+//		Thread.sleep(1000);
+//		driver.findElement(By.xpath("(//div[@class='status status_pending_approval'])[1]")).click();
+//		Thread.sleep(1000);
+//		driver.findElement(By.xpath("//button[@class='ant-dropdown-trigger more']")).click();
+//		Thread.sleep(1000);
+//		driver.findElement(By.xpath("//span[text()='Forward Approval']")).click();
+//		Thread.sleep(2000);
+//		driver.findElement(By.xpath("(//span[@class='ant-select-selection-search'])[2]")).click();
+//		Thread.sleep(2000);
+//		driver.findElement(By.xpath("(//div[@class='ant-select-item-option-content'])[1]")).click();
+//		Thread.sleep(1000);
+//		driver.findElement(By.xpath("//span[text()='Submit']")).click();
+//		
+//	}
+	
+	@Test(description = "Add_Comments_In_Repport_Approvals")
+	public void REP_TC_011() throws InterruptedException {
+
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		driver.findElement(By.xpath("//span[text()='Reports']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//tr[@class='ant-table-row ant-table-row-level-0'])[1]")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//li[text()='Comments']")).click();
+		driver.findElement(By.xpath("//input[@class='ant-input']")).sendKeys("Automation comments");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='Send']")).click();
+		Thread.sleep(1000);
+		String message = driver.findElement(By.xpath("//span[@class='messageText']")).getText();
+		System.out.println(message);
+	
+	}
+	
+	//My Reports Scripts-----------------------------------------------------------------------------------------------------------------------------
+
 	@Test(description = "Create_Report")
 
-	public void REP_TC_008() throws InterruptedException {
+	public void REP_TC_012() throws InterruptedException {
 
 		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
 		driver.findElement(By.xpath("//span[text()='Reports']")).click();
@@ -181,9 +267,31 @@ public class Reports extends BaseClass {
 		driver.findElement(By.xpath("//span[text()='Cancel']")).click();
 
 	}
+	
+	@Test(description = "Edit_Report")
+
+	public void REP_TC_013() throws InterruptedException {
+
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		driver.findElement(By.xpath("//span[text()='Reports']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='My Reports']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[@class='status status_unsubmitted'])[1]")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//button[text()='Edit']")).click();
+		Thread.sleep(1000);
+		WebElement desc = driver.findElement(By.xpath("(//input[@class='ant-input'])[2]"));
+		desc.sendKeys(Keys.CONTROL, "a", Keys.DELETE);
+		desc.sendKeys("Auto Desc"+" "+jUtil.generateRandomNumber(3));
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='Save']")).click();
+		//driver.findElement(By.xpath("//span[text()='Cancel']")).click();
+
+	}
 
 	@Test(description = "Add_Expense_In_Report")
-	public void REP_TC_009() throws InterruptedException {
+	public void REP_TC_014() throws InterruptedException {
 
 		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
 		driver.findElement(By.xpath("//span[text()='Reports']")).click();
@@ -193,12 +301,7 @@ public class Reports extends BaseClass {
 		driver.findElement(By.xpath("(//div[@class='status status_unsubmitted'])[1]")).click();
 		driver.findElement(By.xpath("//li[text()='Expense']")).click();
 		Thread.sleep(1000);
-
-		// WebElement AddNewExpense1 =
-		// driver.findElement(By.xpath("//button[@class='primary-btn']"));
-		// AddNewExpense1.click();
-		WebElement AddNewExpense2 = driver.findElement(By.xpath("//button[@class='secondary-btn mr1']"));
-		AddNewExpense2.click();
+		driver.findElement(By.xpath("//button[@class='secondary-btn mr1']")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.name("amount_cents")).sendKeys(jUtil.generateRandomNumber(4));
 		Thread.sleep(1000);
@@ -227,9 +330,30 @@ public class Reports extends BaseClass {
 		driver.findElement(By.xpath("//span[text()='Save and Close']")).click();
 
 	}
+	
+	@Test(description = "Link_Expense_In_Report")
+	public void REP_TC_015() throws InterruptedException {
+
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		driver.findElement(By.xpath("//span[text()='Reports']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='My Reports']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[@class='status status_unsubmitted'])[1]")).click();
+		driver.findElement(By.xpath("//li[text()='Expense']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//button[text()='Add unreported Expense']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//input[@class='ant-checkbox-input'])[2]")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='Add  Expenses']")).click();
+		Thread.sleep(1000);
+		String message = driver.findElement(By.xpath("//span[@class='messageText']")).getText();
+		System.out.println(message);
+	}
 
 	@Test(description = "Unlink_Expense_From_Report")
-	public void REP_TC_010() throws InterruptedException {
+	public void REP_TC_016() throws InterruptedException {
 		
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
@@ -249,11 +373,164 @@ public class Reports extends BaseClass {
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='Unlink']")).click();
 		//driver.findElement(By.xpath("//button[@class='ant-btn ant-btn-default cancelButton ml1 mt1']")).click();
+		Thread.sleep(1000);
+		String message = driver.findElement(By.xpath("//span[@class='messageText']")).getText();
+		System.out.println(message);
 
 	}
 	
+	@Test(description = "Link_Advance_In_Report")
+	public void REP_TC_017() throws InterruptedException {
+		
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		driver.findElement(By.xpath("//span[text()='Reports']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='My Reports']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[@class='status status_unsubmitted'])[1]")).click();
+		driver.findElement(By.xpath("//li[text()='Advances']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//button[text()='+ Link Advance']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//input[@class='ant-checkbox-input'])[2]")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='Add  Advances']")).click();
+		Thread.sleep(1000);
+		String message = driver.findElement(By.xpath("//span[@class='messageText']")).getText();
+		System.out.println(message);
+
+	}
+	
+	@Test(description = "Unlink_Advance_From_Report")
+	public void REP_TC_018() throws InterruptedException {
+		
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		driver.findElement(By.xpath("//span[text()='Reports']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='My Reports']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[@class='status status_unsubmitted'])[1]")).click();
+		driver.findElement(By.xpath("//li[text()='Advances']")).click();
+		Thread.sleep(1000);
+		WebElement unlik = driver.findElement(By.xpath("//img[@class='ant-dropdown-trigger action-logo']"));
+		wUtil.mouseHoverOn(driver, unlik);
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='Unlink Advance']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='Unlink']")).click();
+
+	}
+	
+	@Test(description = "Link_Trip_In_Report")
+	public void REP_TC_019() throws InterruptedException {
+		
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		driver.findElement(By.xpath("//span[text()='Reports']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='My Reports']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[@class='status status_unsubmitted'])[1]")).click();
+		driver.findElement(By.xpath("//li[text()='Trips']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//button[text()='+ Link Trips']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//input[@class='ant-checkbox-input'])[2]")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='Add  Trips']")).click();
+		Thread.sleep(1000);
+		String message = driver.findElement(By.xpath("//span[@class='messageText']")).getText();
+		System.out.println(message);
+
+	}
+	
+	@Test(description = "Unlink_Trip_From_Report")
+	public void REP_TC_020() throws InterruptedException {
+		
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		driver.findElement(By.xpath("//span[text()='Reports']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='My Reports']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[@class='status status_unsubmitted'])[1]")).click();
+		driver.findElement(By.xpath("//li[text()='Trips']")).click();
+		Thread.sleep(1000);
+		WebElement unlik = driver.findElement(By.xpath("//img[@class='ant-dropdown-trigger action-logo']"));
+		wUtil.mouseHoverOn(driver, unlik);
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='Unlink Trip']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='Unlink']")).click();
+
+	}
+	
+	@Test(description = "Add_Comments_In_My_Reports")
+	public void REP_TC_021() throws InterruptedException {
+		
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		driver.findElement(By.xpath("//span[text()='Reports']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='My Reports']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//tr[@class='ant-table-row ant-table-row-level-0'])[1]")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//li[text()='Comments']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//input[@class='ant-input']")).sendKeys("Automation comments");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='Send']")).click();
+		Thread.sleep(1000);
+		String message = driver.findElement(By.xpath("//span[@class='messageText']")).getText();
+		System.out.println(message);
+
+	}
+	
+	@Test(description = "Share_Report_In_More_My_Report")
+	public void REP_TC_022() throws InterruptedException {
+
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		driver.findElement(By.xpath("//span[text()='Reports']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='My Reports']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//tr[@class='ant-table-row ant-table-row-level-0'])[1]")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//button[@class='ant-dropdown-trigger more']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='Share Report']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//input[@name='email']")).sendKeys("rajesh@yopmail.com");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='Submit']")).click();
+		Thread.sleep(1000);
+	    String message = driver.findElement(By.xpath("//span[@class='messageText']")).getText();
+		System.out.println(message);
+	}
+	
+	@Test(description = "Download_Report_In_More_My_Report")
+	public void REP_TC_023() throws InterruptedException {
+
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		driver.findElement(By.xpath("//span[text()='Reports']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='My Reports']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//tr[@class='ant-table-row ant-table-row-level-0'])[1]")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//button[@class='ant-dropdown-trigger more']")).click();
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//span[text()='Download PDF']")).click();
+		Thread.sleep(1000);
+		wUtil.switchToWindow(driver, "amazonaws");
+		Thread.sleep(1000);
+		driver.close();
+		Thread.sleep(1000);
+		wUtil.switchToWindow(driver, "expenses");
+	
+	}
+	
+	
 	@Test(description = "My_Reports_Filters")
-	public void REP_TC_011() throws InterruptedException, IOException {
+	public void REP_TC_024() throws InterruptedException, IOException {
 
 		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
 		driver.findElement(By.xpath("//span[text()='Reports']")).click();
@@ -292,7 +569,7 @@ public class Reports extends BaseClass {
 	}
 
 	@Test(description = "My_Reports_Search")
-	public void REP_TC_012() throws InterruptedException, IOException {
+	public void REP_TC_025() throws InterruptedException, IOException {
 
 		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
 		driver.findElement(By.xpath("//span[text()='Reports']")).click();
@@ -317,7 +594,7 @@ public class Reports extends BaseClass {
 	}
 
 	@Test(description = "My_Reports_Sort")
-	public void REP_TC_013() throws InterruptedException {
+	public void REP_TC_026() throws InterruptedException {
 
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
