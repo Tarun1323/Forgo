@@ -6,10 +6,10 @@
       <class name="expenses.Reports">
         <methods>
           <include name="acConfig"/>
+          <include name="REP_TC_022"/>
           <include name="bsConfig"/>
           <include name="bcConfig"/>
           <include name="amConfig"/>
-          <include name="REP_TC_009"/>
           <include name="asConfig"/>
           <include name="bmlConfig"/>
         </methods>

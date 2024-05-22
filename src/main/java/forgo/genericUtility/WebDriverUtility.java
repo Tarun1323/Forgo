@@ -3,6 +3,8 @@ package forgo.genericUtility;
 import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.Iterator;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
@@ -139,7 +141,7 @@ public class WebDriverUtility {
 	public void mouseHoverOn(WebDriver driver, WebElement element) {
 
 		Actions act = new Actions(driver);
-		act.moveToElement(element);
+		act.moveToElement(element).perform();
 	}
 
 	/**
@@ -206,6 +208,38 @@ public class WebDriverUtility {
 		String alertText = driver.switchTo().alert().getText();
 		return alertText;
 	}
+	
+	/**
+	 * This method will switch to the window with respect to the window title
+	 * @param driver
+	 * @param title
+	 */
+	
+	public void switchToWindow(WebDriver driver, String title){
+		
+		//Step 1: get all window handles
+		Set<String> windowIds = driver.getWindowHandles();
+		
+		//Step 2: Iterate through all windowIds
+		Iterator<String> it = windowIds.iterator();
+		
+		//Step 3: navigate inside the windows
+		while(it.hasNext()) //loop until windows exist
+		{
+			//capture all window ids
+			String winId = it.next();
+			
+			//Switch to window capture the title
+			String currentTitle = driver.switchTo().window(winId).getTitle();
+			if(currentTitle.contains(title))
+			{
+				break;
+			}
+		}
+		
+	}
+	
+	
 	/**
 	 * This method will take screen shot and return the destination path
 	 * 
