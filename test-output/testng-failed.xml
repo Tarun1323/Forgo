@@ -3,34 +3,23 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-<<<<<<< HEAD
-      <class name="sales.Delivery_Chalana">
-=======
-      <class name="expenses.Reports">
->>>>>>> branch 'master' of https://github.com/PurpleplumTech/ems_test_automation
+      <class name="Purchases.Vendor">
         <methods>
           <include name="acConfig"/>
-          <include name="setup"/>
+          <include name="VND_TC006"/>
           <include name="bsConfig"/>
           <include name="bcConfig"/>
-<<<<<<< HEAD
-          <include name="teardown"/>
-=======
->>>>>>> branch 'master' of https://github.com/PurpleplumTech/ems_test_automation
+          <include name="VND_TC001"/>
+          <include name="VND_TC004"/>
           <include name="amConfig"/>
-<<<<<<< HEAD
-          <include name="TC90"/>
-=======
-          <include name="REP_TC_009"/>
->>>>>>> branch 'master' of https://github.com/PurpleplumTech/ems_test_automation
+          <include name="VND_TC003"/>
+          <include name="VND_TC005"/>
           <include name="asConfig"/>
+          <include name="VND_TC007"/>
           <include name="bmlConfig"/>
+          <include name="VND_TC002"/>
         </methods>
-<<<<<<< HEAD
-      </class> <!-- sales.Delivery_Chalana -->
-=======
-      </class> <!-- expenses.Reports -->
->>>>>>> branch 'master' of https://github.com/PurpleplumTech/ems_test_automation
+      </class> <!-- Purchases.Vendor -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

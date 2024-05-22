@@ -2,7 +2,6 @@ package sales;
 
 import java.io.File;
 import java.io.IOException;
-import java.time.Duration;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
@@ -10,17 +9,10 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import forgo.genericUtility.BaseClass;
-import io.github.bonigarcia.wdm.WebDriverManager;
 public class Delivery_Chalana extends BaseClass {
 
 	@Test(description="Creat Delivery Challan")
@@ -333,6 +325,56 @@ public class Delivery_Chalana extends BaseClass {
 			searchElement.sendKeys("DC_03");
 			Thread.sleep(1000);
 			wUtil.takeScreenShot(driver,"Search by DC");	
+		}
+		@Test(description="To Verify sort DC")
+		public void TC91() throws InterruptedException, IOException{
+			Thread.sleep(1000);
+			driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
+			driver.findElement(By.xpath("//span[text()='Delivery Challan']")).click();
+			driver.findElement(By.xpath("//span[@class='anticon anticon-ellipsis pp-icon-25']")).click();
+			Thread.sleep(1000);
+			driver.findElement(By.xpath("//span[text()='Date']")).click();
+			Thread.sleep(1000);
+			wUtil.takeScreenShot(driver,"sort  by date");	
+
+}
+		@Test(description="To Verify detail page for DC approval")
+		public void TC92() throws InterruptedException, IOException{
+			Thread.sleep(1000);
+			driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
+			driver.findElement(By.xpath("//span[text()='Delivery Challan']")).click();
+			driver.findElement(By.xpath("//div[@class='status status_pending_approval']")).click();
+			Thread.sleep(1000);
+			wUtil.takeScreenShot(driver,"details for DC");
+			driver.findElement(By.xpath("//li[text()='Items']")).click();
+			Thread.sleep(1000);
+			wUtil.takeScreenShot(driver,"Item tabe for DC");
+			driver.findElement(By.xpath("//li[text()='History']")).click();
+			Thread.sleep(1000);
+			wUtil.takeScreenShot(driver,"HIstory tabe for DC");
+			Thread.sleep(1000);
+			driver.findElement(By.xpath("//li[text()='Comments']")).click();
+			driver.findElement(By.xpath("//input[@class='ant-input']")).sendKeys("12345asdf");
+			Thread.sleep(1000);
+			driver.findElement(By.xpath("//span[text()='Send']")).click();
+			Thread.sleep(1000);
+			wUtil.takeScreenShot(driver,"comment tabe for DC");
+		
+}
+		@Test(description="To Verify Approve and Reject for DC approval")
+		public void TC93() throws InterruptedException, IOException{
+			Thread.sleep(1000);
+			driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
+			driver.findElement(By.xpath("//span[text()='Delivery Challan']")).click();
+			driver.findElement(By.xpath("//div[@class='status status_pending_approval']")).click();
+			/*driver.findElement(By.xpath("//span[text()='Approve']")).click();
+			Thread.sleep(1000);
+			wUtil.takeScreenShot(driver,"Approval for DC");*/
+			driver.findElement(By.xpath("//span[text()='Reject']")).click();
+			Thread.sleep(1000);
+			wUtil.takeScreenShot(driver,"Reject for DC");
+			driver.findElement(By.xpath("(//span[text()='Cancel'])[1]")).click();
+		
 		}
 }
 
