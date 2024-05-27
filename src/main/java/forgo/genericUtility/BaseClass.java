@@ -65,6 +65,7 @@ public class BaseClass {
 	{
 		
 		DashBoard db = new DashBoard(driver);
+		Thread.sleep(1000);
 		db.logout();
 		Reporter.log("----logout sucessfull----", true);
 	}

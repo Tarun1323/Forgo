@@ -1,7 +1,6 @@
 package expenses;
 
 import java.io.IOException;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
@@ -129,7 +128,6 @@ public class Advances extends BaseClass{
 		driver.close();
 		Thread.sleep(1000);
 		wUtil.switchToWindow(driver, "expenses");
-	
 	}	
 	
 	@Test(description = "Add_Comments_In_My_Advances")
@@ -338,10 +336,7 @@ public class Advances extends BaseClass{
 		Thread.sleep(1000);
 	}
 
-	/**
-	 * @throws InterruptedException
-	 * @throws IOException
-	 */
+	
 	@Test(description = "Advances_Approvals_Search")
 	public void ADV_TC_013() throws InterruptedException, IOException {
 
@@ -386,4 +381,92 @@ public class Advances extends BaseClass{
 		wUtil.takeScreenShot(driver, "Sort by Employee" + " " + jUtil.getSystemDateInFormat());
 
 	}
+	
+	@Test(description = "Add_Comments_In_Advance_Approvals")
+	public void ADV_TC_015() throws InterruptedException {
+		
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		driver.findElement(By.xpath("//span[text()='Advances']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//tr[@class='ant-table-row ant-table-row-level-0'])[1]")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//li[text()='Comments']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//input[@class='ant-input']")).sendKeys("Automation comments");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='Send']")).click();
+		Thread.sleep(1000);
+		String message = driver.findElement(By.xpath("//span[@class='messageText']")).getText();
+		System.out.println(message);
+
+	}
+	
+	@Test(description = "Approve_Advance")
+	public void ADV_TC_016() throws InterruptedException {
+		
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		driver.findElement(By.xpath("//span[text()='Advances']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='Add Filters']")).click();
+		Thread.sleep(1000);
+		try {
+			driver.findElement(By.xpath("(//div[@class='status status_pending_approval'])[1]")).click();
+			}
+			catch(NoSuchElementException e)
+			{
+				System.out.println("No Pending approval Adavances");
+			}
+		driver.findElement(By.xpath("(//div[@class='status status_pending_approval'])[1]")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//button[text()='Approve']")).click();
+		Thread.sleep(1000);
+		String message = driver.findElement(By.xpath("//span[@class='messageText']")).getText();
+		System.out.println(message);
+
+	}
+	
+	@Test(description = "Reject_Advance")
+	public void ADV_TC_017() throws InterruptedException {
+		
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		driver.findElement(By.xpath("//span[text()='Advances']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='Add Filters']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='Pending Approval']")).click();
+		try {
+		driver.findElement(By.xpath("(//div[@class='status status_pending_approval'])[1]")).click();
+		}
+		catch(NoSuchElementException e)
+		{
+			System.out.println("No Pending approval Adavances");
+		}
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//button[text()='Reject']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//textarea[@class='ant-input reasonTextArea']")).sendKeys("Test Reject Reason");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='Confirm']")).click();
+		Thread.sleep(2000);
+		String message = driver.findElement(By.xpath("//span[@class='messageText']")).getText();
+		System.out.println(message);
+	}
+	
+	@Test(description = "Download_Advance_In_More_Advance_Approvals")
+	public void ADV_TC_018() throws InterruptedException {
+
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		driver.findElement(By.xpath("//span[text()='Advances']")).click();
+		driver.findElement(By.xpath("(//tr[@class='ant-table-row ant-table-row-level-0'])[1]")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//button[@class='ant-dropdown-trigger more']")).click();
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//span[text()='Download PDF']")).click();
+		Thread.sleep(1000);
+		wUtil.switchToWindow(driver, "amazonaws");
+		Thread.sleep(1000);
+		driver.close();
+		Thread.sleep(1000);
+		wUtil.switchToWindow(driver, "expenses");
+	}	
 }
