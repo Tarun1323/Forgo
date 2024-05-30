@@ -15,6 +15,7 @@ public class Advances extends BaseClass{
 	@Test(description = "Create_Adavance")
 	public void ADV_TC_001() throws InterruptedException{
 		
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
 		driver.findElement(By.xpath("//span[text()='Advances']")).click();
 		Thread.sleep(1000);
@@ -39,9 +40,9 @@ public class Advances extends BaseClass{
 	@Test(description = "Edit_Adavance")
 	public void ADV_TC_002() throws InterruptedException{
 		
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
 		driver.findElement(By.xpath("//span[text()='Advances']")).click();
-		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='My Advances']")).click();
 		driver.findElement(By.xpath("//span[text()='Add Filters']")).click();
 		Thread.sleep(1000);
@@ -70,9 +71,9 @@ public class Advances extends BaseClass{
 	@Test(description = "Submit_Adavance")
 	public void ADV_TC_003() throws InterruptedException{
 		
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
 		driver.findElement(By.xpath("//span[text()='Advances']")).click();
-		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='My Advances']")).click();
 		driver.findElement(By.xpath("//span[text()='Add Filters']")).click();
 		Thread.sleep(1000);
@@ -88,9 +89,9 @@ public class Advances extends BaseClass{
 	@Test(description = "Recall_Adavance")
 	public void ADV_TC_004() throws InterruptedException{
 		
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
 		driver.findElement(By.xpath("//span[text()='Advances']")).click();
-		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='My Advances']")).click();
 		driver.findElement(By.xpath("//span[text()='Add Filters']")).click();
 		Thread.sleep(1000);
@@ -111,9 +112,10 @@ public class Advances extends BaseClass{
 		
 	}
 	
-	@Test(description = "Download_Advance_In_More_My_Advance")
+	@Test(description = "Download_Pdf_In_More_My_Advance")
 	public void ADV_TC_005() throws InterruptedException {
 
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
 		driver.findElement(By.xpath("//span[text()='Advances']")).click();
 		driver.findElement(By.xpath("//span[text()='My Advances']")).click();
@@ -133,10 +135,10 @@ public class Advances extends BaseClass{
 	@Test(description = "Add_Comments_In_My_Advances")
 	public void ADV_TC_006() throws InterruptedException {
 		
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
 		driver.findElement(By.xpath("//span[text()='Advances']")).click();
 		driver.findElement(By.xpath("//span[text()='My Advances']")).click();
-		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//tr[@class='ant-table-row ant-table-row-level-0'])[1]")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//li[text()='Comments']")).click();
@@ -154,10 +156,10 @@ public class Advances extends BaseClass{
 	@Test(description = "Add_To_Report_In_My_Advances")
 	public void ADV_TC_007() throws InterruptedException {
 		
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
 		driver.findElement(By.xpath("//span[text()='Advances']")).click();
 		driver.findElement(By.xpath("//span[text()='My Advances']")).click();
-		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='Add Filters']")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='Approved']")).click();
@@ -178,10 +180,10 @@ public class Advances extends BaseClass{
 	@Test(description = "Filters_In_My_Advances")
 	public void ADV_TC_008() throws InterruptedException, IOException {
 		
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
 		driver.findElement(By.xpath("//span[text()='Advances']")).click();
 		driver.findElement(By.xpath("//span[text()='My Advances']")).click();
-		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='Add Filters']")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='Approved']")).click();
@@ -217,7 +219,7 @@ public class Advances extends BaseClass{
 		driver.findElement(By.xpath("//span[text()='Unsubmitted']")).click();
 		Thread.sleep(1000);
 		wUtil.takeScreenShot(driver, "Unsubmitted"+" "+jUtil.getSystemDateInFormat());
-		Thread.sleep(1000);
+		
 	}
 
 	/**
@@ -227,6 +229,7 @@ public class Advances extends BaseClass{
 	@Test(description = "My_Advances_Search")
 	public void ADV_TC_009() throws InterruptedException, IOException {
 
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
 		driver.findElement(By.xpath("//span[text()='Advances']")).click();
 		driver.findElement(By.xpath("//span[text()='My Advances']")).click();
@@ -247,10 +250,10 @@ public class Advances extends BaseClass{
 	@Test(description = "My_Advances_Sort")
 	public void ADV_TC_010() throws InterruptedException, IOException {
 
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
 		driver.findElement(By.xpath("//span[text()='Advances']")).click();
 		driver.findElement(By.xpath("//span[text()='My Advances']")).click();
-		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[@class='anticon anticon-ellipsis pp-icon-25']")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='amount']")).click();
@@ -274,9 +277,9 @@ public class Advances extends BaseClass{
 	@Test(description = "Delete_Adavance")
 	public void ADV_TC_011() throws InterruptedException{
 		
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
 		driver.findElement(By.xpath("//span[text()='Advances']")).click();
-		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='My Advances']")).click();
 		driver.findElement(By.xpath("//span[text()='Add Filters']")).click();
 		Thread.sleep(1000);
@@ -299,9 +302,9 @@ public class Advances extends BaseClass{
 	@Test(description = "Filters_In_Advances_Approvals")
 	public void ADV_TC_012() throws InterruptedException, IOException {
 		
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
 		driver.findElement(By.xpath("//span[text()='Advances']")).click();
-		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='Add Filters']")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='Approved']")).click();
@@ -333,13 +336,14 @@ public class Advances extends BaseClass{
 		wUtil.takeScreenShot(driver, "Rejected"+" "+jUtil.getSystemDateInFormat());
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='Rejected']")).click();
-		Thread.sleep(1000);
+		
 	}
 
 	
 	@Test(description = "Advances_Approvals_Search")
 	public void ADV_TC_013() throws InterruptedException, IOException {
 
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
 		driver.findElement(By.xpath("//span[text()='Advances']")).click();
 		WebElement search = driver.findElement(By.xpath("//input[@id='search-input']"));
@@ -359,9 +363,9 @@ public class Advances extends BaseClass{
 	@Test(description = "Advances_Approvals_Sort")
 	public void ADV_TC_014() throws InterruptedException, IOException {
 
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
 		driver.findElement(By.xpath("//span[text()='Advances']")).click();
-		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[@class='anticon anticon-ellipsis pp-icon-25']")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='amount']")).click();
@@ -385,6 +389,7 @@ public class Advances extends BaseClass{
 	@Test(description = "Add_Comments_In_Advance_Approvals")
 	public void ADV_TC_015() throws InterruptedException {
 		
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
 		driver.findElement(By.xpath("//span[text()='Advances']")).click();
 		Thread.sleep(1000);
@@ -404,6 +409,7 @@ public class Advances extends BaseClass{
 	@Test(description = "Approve_Advance")
 	public void ADV_TC_016() throws InterruptedException {
 		
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
 		driver.findElement(By.xpath("//span[text()='Advances']")).click();
 		Thread.sleep(1000);
@@ -416,7 +422,6 @@ public class Advances extends BaseClass{
 			{
 				System.out.println("No Pending approval Adavances");
 			}
-		driver.findElement(By.xpath("(//div[@class='status status_pending_approval'])[1]")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//button[text()='Approve']")).click();
 		Thread.sleep(1000);
@@ -428,6 +433,7 @@ public class Advances extends BaseClass{
 	@Test(description = "Reject_Advance")
 	public void ADV_TC_017() throws InterruptedException {
 		
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
 		driver.findElement(By.xpath("//span[text()='Advances']")).click();
 		Thread.sleep(1000);
@@ -455,12 +461,13 @@ public class Advances extends BaseClass{
 	@Test(description = "Download_Advance_In_More_Advance_Approvals")
 	public void ADV_TC_018() throws InterruptedException {
 
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
 		driver.findElement(By.xpath("//span[text()='Advances']")).click();
 		driver.findElement(By.xpath("(//tr[@class='ant-table-row ant-table-row-level-0'])[1]")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//button[@class='ant-dropdown-trigger more']")).click();
-		Thread.sleep(5000);
+		Thread.sleep(4000);
 		driver.findElement(By.xpath("//span[text()='Download PDF']")).click();
 		Thread.sleep(1000);
 		wUtil.switchToWindow(driver, "amazonaws");
