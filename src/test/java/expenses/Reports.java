@@ -65,9 +65,9 @@ public class Reports extends BaseClass {
 		driver.findElement(By.name("notes")).sendKeys("Auto Notes");
 		//driver.findElement(By.xpath("//button[text()='Record Reimbursement']")).click();
 		driver.findElement(By.xpath("//button[text()='Cancel']")).click();
-		Thread.sleep(2000);
-		String message = driver.findElement(By.xpath("//span[@class='messageText']")).getText();
-		System.out.println(message);
+//		Thread.sleep(2000);
+//		String message = driver.findElement(By.xpath("//span[@class='messageText']")).getText();
+//		System.out.println(message);
 		
 	}
 
@@ -85,9 +85,9 @@ public class Reports extends BaseClass {
 		driver.findElement(By.xpath(" //textarea[@class='ant-input reasonTextArea']")).sendKeys("Reject Reason-Automation");
 		//driver.findElement(By.xpath("//span[text()='Confirm']")).click();
 		driver.findElement(By.xpath("//span[text()='Cancel']")).click();
-		Thread.sleep(2000);
-		String message = driver.findElement(By.xpath("//span[@class='messageText']")).getText();
-		System.out.println(message);
+//		Thread.sleep(2000);
+//		String message = driver.findElement(By.xpath("//span[@class='messageText']")).getText();
+//		System.out.println(message);
 		
 	}
 	
