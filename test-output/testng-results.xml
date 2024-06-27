@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+=======
+<testng-results ignored="26" total="27" passed="1" failed="0" skipped="0">
+>>>>>>> branch 'master' of https://github.com/PurpleplumTech/ems_test_automation
   <reporter-output>
     <line>
       <![CDATA[----Database connected Successfully----]]>
@@ -11,6 +15,9 @@
       <![CDATA[----Login Successfull----]]>
     </line>
     <line>
+      <![CDATA[Report created successfully]]>
+    </line>
+    <line>
       <![CDATA[----logout sucessfull----]]>
     </line>
     <line>
@@ -20,32 +27,53 @@
       <![CDATA[----Database Closed Successfull----]]>
     </line>
   </reporter-output>
+<<<<<<< HEAD
   <suite started-at="2024-06-27T16:15:11 IST" name="Default suite" finished-at="2024-06-27T16:15:34 IST" duration-ms="22952">
+=======
+  <suite started-at="2024-06-27T18:49:06 IST" name="Default suite" finished-at="2024-06-27T18:49:26 IST" duration-ms="19277">
+>>>>>>> branch 'master' of https://github.com/PurpleplumTech/ems_test_automation
     <groups>
     </groups>
+<<<<<<< HEAD
     <test started-at="2024-06-27T16:15:11 IST" name="Default test" finished-at="2024-06-27T16:15:34 IST" duration-ms="22952">
+=======
+    <test started-at="2024-06-27T18:49:06 IST" name="Default test" finished-at="2024-06-27T18:49:26 IST" duration-ms="19277">
+>>>>>>> branch 'master' of https://github.com/PurpleplumTech/ems_test_automation
       <class name="expenses.Reports">
+<<<<<<< HEAD
         <test-method is-config="true" signature="bsConfig()[pri:0, instance:expenses.Reports@1787f2a0]" started-at="2024-06-27T16:15:11 IST" name="bsConfig" finished-at="2024-06-27T16:15:11 IST" duration-ms="11" status="PASS">
+=======
+        <test-method is-config="true" signature="bsConfig()[pri:0, instance:expenses.Reports@3c77d488]" started-at="2024-06-27T18:49:06 IST" name="bsConfig" finished-at="2024-06-27T18:49:06 IST" duration-ms="10" status="PASS">
+>>>>>>> branch 'master' of https://github.com/PurpleplumTech/ems_test_automation
           <reporter-output>
             <line>
               <![CDATA[----Database connected Successfully----]]>
             </line>
           </reporter-output>
         </test-method> <!-- bsConfig -->
+<<<<<<< HEAD
         <test-method is-config="true" signature="bcConfig()[pri:0, instance:expenses.Reports@1787f2a0]" started-at="2024-06-27T16:15:11 IST" name="bcConfig" finished-at="2024-06-27T16:15:15 IST" duration-ms="3995" status="PASS">
+=======
+        <test-method is-config="true" signature="bcConfig()[pri:0, instance:expenses.Reports@3c77d488]" started-at="2024-06-27T18:49:07 IST" name="bcConfig" finished-at="2024-06-27T18:49:12 IST" duration-ms="5506" status="PASS">
+>>>>>>> branch 'master' of https://github.com/PurpleplumTech/ems_test_automation
           <reporter-output>
             <line>
               <![CDATA[----browser launched Successfully----]]>
             </line>
           </reporter-output>
         </test-method> <!-- bcConfig -->
+<<<<<<< HEAD
         <test-method is-config="true" signature="bmlConfig()[pri:0, instance:expenses.Reports@1787f2a0]" started-at="2024-06-27T16:15:15 IST" name="bmlConfig" finished-at="2024-06-27T16:15:19 IST" duration-ms="4075" status="PASS">
+=======
+        <test-method is-config="true" signature="bmlConfig()[pri:0, instance:expenses.Reports@3c77d488]" started-at="2024-06-27T18:49:12 IST" name="bmlConfig" finished-at="2024-06-27T18:49:14 IST" duration-ms="2362" status="PASS">
+>>>>>>> branch 'master' of https://github.com/PurpleplumTech/ems_test_automation
           <reporter-output>
             <line>
               <![CDATA[----Login Successfull----]]>
             </line>
           </reporter-output>
         </test-method> <!-- bmlConfig -->
+<<<<<<< HEAD
         <test-method signature="REP_TC_003()[pri:0, instance:expenses.Reports@1787f2a0]" started-at="2024-06-27T16:15:19 IST" name="REP_TC_003" description="Reimburse_Report" finished-at="2024-06-27T16:15:32 IST" duration-ms="13527" status="FAIL">
           <exception class="org.openqa.selenium.NoSuchElementException">
             <message>
@@ -117,24 +145,43 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
           </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+=======
+        <test-method signature="REP_TC_012()[pri:0, instance:expenses.Reports@3c77d488]" started-at="2024-06-27T18:49:14 IST" name="REP_TC_012" description="Create_Report" finished-at="2024-06-27T18:49:23 IST" duration-ms="8841" status="PASS">
+>>>>>>> branch 'master' of https://github.com/PurpleplumTech/ems_test_automation
           <reporter-output>
+            <line>
+              <![CDATA[Report created successfully]]>
+            </line>
           </reporter-output>
+<<<<<<< HEAD
         </test-method> <!-- REP_TC_003 -->
         <test-method is-config="true" signature="amConfig()[pri:0, instance:expenses.Reports@1787f2a0]" started-at="2024-06-27T16:15:32 IST" name="amConfig" finished-at="2024-06-27T16:15:34 IST" duration-ms="1183" status="PASS">
+=======
+        </test-method> <!-- REP_TC_012 -->
+        <test-method is-config="true" signature="amConfig()[pri:0, instance:expenses.Reports@3c77d488]" started-at="2024-06-27T18:49:23 IST" name="amConfig" finished-at="2024-06-27T18:49:25 IST" duration-ms="2246" status="PASS">
+>>>>>>> branch 'master' of https://github.com/PurpleplumTech/ems_test_automation
           <reporter-output>
             <line>
               <![CDATA[----logout sucessfull----]]>
             </line>
           </reporter-output>
         </test-method> <!-- amConfig -->
+<<<<<<< HEAD
         <test-method is-config="true" signature="acConfig()[pri:0, instance:expenses.Reports@1787f2a0]" started-at="2024-06-27T16:15:34 IST" name="acConfig" finished-at="2024-06-27T16:15:34 IST" duration-ms="139" status="PASS">
+=======
+        <test-method is-config="true" signature="acConfig()[pri:0, instance:expenses.Reports@3c77d488]" started-at="2024-06-27T18:49:25 IST" name="acConfig" finished-at="2024-06-27T18:49:26 IST" duration-ms="271" status="PASS">
+>>>>>>> branch 'master' of https://github.com/PurpleplumTech/ems_test_automation
           <reporter-output>
             <line>
               <![CDATA[----browser Closed Successfull----]]>
             </line>
           </reporter-output>
         </test-method> <!-- acConfig -->
+<<<<<<< HEAD
         <test-method is-config="true" signature="asConfig()[pri:0, instance:expenses.Reports@1787f2a0]" started-at="2024-06-27T16:15:34 IST" name="asConfig" finished-at="2024-06-27T16:15:34 IST" duration-ms="0" status="PASS">
+=======
+        <test-method is-config="true" signature="asConfig()[pri:0, instance:expenses.Reports@3c77d488]" started-at="2024-06-27T18:49:26 IST" name="asConfig" finished-at="2024-06-27T18:49:26 IST" duration-ms="1" status="PASS">
+>>>>>>> branch 'master' of https://github.com/PurpleplumTech/ems_test_automation
           <reporter-output>
             <line>
               <![CDATA[----Database Closed Successfull----]]>
