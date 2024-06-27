@@ -27,8 +27,10 @@ public class BaseClass {
 	public JavaUtility jUtil = new JavaUtility();
 	public PropertyFileUtility pUtil = new PropertyFileUtility();
 	public ExcelFileUtility eUtil = new ExcelFileUtility();
-	public WebDriver driver = null;
-	
+	public WebDriver driver= null;
+	public LoginPage lp;
+	public DashBoard db;
+
 	@BeforeSuite
 	public void bsConfig() {
 		
@@ -44,6 +46,8 @@ public class BaseClass {
 		wUtil.maximiseWindow(driver);
 		wUtil.waitForElementsToLoadInDOM(driver);
 		driver.get(url);
+		lp =new LoginPage(driver);
+		db =new DashBoard(driver);
 		Reporter.log("----browser launched Successfully----", true);
 	}
 	
@@ -53,9 +57,8 @@ public class BaseClass {
 		String Email = pUtil.readDataFromPropertyFile("email");
 		String Password = pUtil.readDataFromPropertyFile("password");
 		Thread.sleep(1000);
-		LoginPage lp = new LoginPage(driver);
 		lp.login(Email, Password);
-		
+
 		driver.findElement(By.xpath("(//button[@class='go_to_organisation'])[1]")).click();
 		Reporter.log("----Login Successfull----", true);
 	}
@@ -63,8 +66,8 @@ public class BaseClass {
 	@AfterMethod
 	public void amConfig() throws InterruptedException
 	{
+		Thread.sleep(1000);
 		
-		DashBoard db = new DashBoard(driver);
 		db.logout();
 		Reporter.log("----logout sucessfull----", true);
 	}

@@ -156,6 +156,8 @@ public class WebDriverUtility {
 		Actions act = new Actions(driver);
 		act.moveByOffset(x, y).perform();
 	}
+	
+	
 
 	/**
 	 * This method will perform right click on the page

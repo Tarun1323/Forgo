@@ -6,7 +6,7 @@
       <class name="expenses.Reports">
         <methods>
           <include name="acConfig"/>
-          <include name="REP_TC_022"/>
+          <include name="REP_TC_012"/>
           <include name="bsConfig"/>
           <include name="bcConfig"/>
           <include name="amConfig"/>

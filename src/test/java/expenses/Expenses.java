@@ -14,7 +14,7 @@ public class Expenses extends BaseClass {
 	@Test(description = "Create_Expense")
 	public void EXP_TC_001() throws InterruptedException {
 		
-		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		db.clickOnExpensesLnk();
 		driver.findElement(By.xpath("//span[text()='Add New']")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.name("amount_cents")).sendKeys(jUtil.generateRandomNumber(4));
@@ -53,7 +53,7 @@ public class Expenses extends BaseClass {
 	public void EXP_TC_002() throws InterruptedException {
 		
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		db.clickOnExpensesLnk();
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 		js.executeScript("document.querySelector(\"div[style$='overflow: auto hidden;']\").scrollLeft= 150");
 		Thread.sleep(1000);
@@ -81,7 +81,7 @@ public class Expenses extends BaseClass {
 	@Test(description = "Expense_Filters")
 	public void EXP_TC_003() throws InterruptedException {
 		
-		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		db.clickOnExpensesLnk();
 		driver.findElement(By.xpath("//span[text()='Add Filters']")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='Saved']")).click();
@@ -115,7 +115,7 @@ public class Expenses extends BaseClass {
 	@Test(description = "Expense_Search")
 	public void EXP_TC_004() throws InterruptedException, IOException {
 		
-		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		db.clickOnExpensesLnk();
 		Thread.sleep(1000);
 		WebElement search = driver.findElement(By.xpath("//input[@id='search-input']"));
 		search.sendKeys("77");
@@ -139,7 +139,7 @@ public class Expenses extends BaseClass {
 	public void EXP_TC_005() throws InterruptedException {
 		
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		db.clickOnExpensesLnk();
 		driver.findElement(By.xpath("//span[@class='anticon anticon-ellipsis pp-icon-25']")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='amount']")).click(); 
@@ -157,7 +157,7 @@ public class Expenses extends BaseClass {
 	@Test(description = "Add_Expense_To_Report")
 	public void EXP_TC_006() throws InterruptedException{
 		
-		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		db.clickOnExpensesLnk();
 		Thread.sleep(1000);
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 		js.executeScript("document.querySelector(\"div[style$='overflow: auto hidden;']\").scrollLeft= 150");
@@ -178,7 +178,7 @@ public class Expenses extends BaseClass {
 	@Test(description = "Change_Report_In_Expense")
 	public void EXP_TC_007() throws InterruptedException{
 		
-		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		db.clickOnExpensesLnk();
 		Thread.sleep(1000);
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 		js.executeScript("document.querySelector(\"div[style$='overflow: auto hidden;']\").scrollLeft= 150");
@@ -203,7 +203,7 @@ public class Expenses extends BaseClass {
 	@Test(description = "Comment_In_Expense")
 	public void EXP_TC_008() throws InterruptedException{
 		
-		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		db.clickOnExpensesLnk();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//tr[@class='ant-table-row ant-table-row-level-0'])[1]")).click();
 		Thread.sleep(1000);
@@ -216,6 +216,8 @@ public class Expenses extends BaseClass {
 		System.out.println(message);
 		
 	}
-
+	
+	//span[@class='anticon anticon-right'] 
+	
 	
 }
