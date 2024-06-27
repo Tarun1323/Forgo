@@ -6,7 +6,7 @@ import java.util.Random;
 /**
  * This class contains all generic methods related to java
  * 
- * @author Nagarjuna
+ * @author Nagarjuna,Tarun
  */
 public class JavaUtility {
 	

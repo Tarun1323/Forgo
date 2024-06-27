@@ -17,7 +17,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 /**
  * This Class Contains basic configuration annotation for common funtionalities like launch the browser, login and logout etc..
- * @author Nagarjuna
+ * @author Nagarjuna,Tarun
  * 
  */
 

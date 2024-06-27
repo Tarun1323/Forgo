@@ -20,7 +20,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 /**
  * This class contains all generic methods related to web driver actions
  * 
- * @author Nagarjuna
+ * @author agarjuna, Tarun
  * 
  */
 

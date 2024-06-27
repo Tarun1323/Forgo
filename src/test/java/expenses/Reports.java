@@ -33,6 +33,10 @@ public class Reports extends BaseClass {
 		driver.findElement(By.xpath("(//div[@class='status status_pending_approval'])[1]")).click();
 		Thread.sleep(1000);
 		//driver.findElement(By.xpath("//button[@class='approve']")).click();
+		Thread.sleep(1000);
+		wUtil.takeScreenShot(driver,"Approve_Report");
+
+		
 		
 	}
 	
@@ -50,6 +54,9 @@ public class Reports extends BaseClass {
 		driver.findElement(By.xpath(" //textarea[@class='ant-input reasonTextArea']")).sendKeys("Reject Reason-Automation");
 		//driver.findElement(By.xpath("//span[text()='Confirm']")).click();
 		driver.findElement(By.xpath("//span[text()='Cancel']")).click();
+		Thread.sleep(1000);
+		wUtil.takeScreenShot(driver,"Reject_Report");
+
 	}
 	
 	
@@ -67,6 +74,15 @@ public class Reports extends BaseClass {
 		driver.findElement(By.xpath("(//div[@class='ant-select-selector'])[2]")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//div[text()='Bank Transfer']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[@class='ant-select-selector'])[3]")).click();
+		driver.findElement(By.xpath("(//div[text()='Company'])[2]")).click();
+		driver.findElement(By.xpath("//button[text()='Record Reimbursement']")).click();
+		Thread.sleep(1000);
+		wUtil.takeScreenShot(driver,"Reimburse_Report");
+
+
+		
 	}
 
 	
@@ -80,7 +96,13 @@ public class Reports extends BaseClass {
 		driver.findElement(By.xpath("(//div[@class='status status_pending_reimbursement'])[1]")).click();
 		Thread.sleep(1000);
 		//driver.findElement(By.xpath("//button[@class='approve']")).click();
-		driver.findElement(By.xpath("//span[text()='Cancel']")).click();
+		driver.findElement(By.xpath("//button[text()='Reject']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//textarea[@class='ant-input reasonTextArea']")).sendKeys("qwert");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='Confirm']")).click();
+		Thread.sleep(1000);
+		wUtil.takeScreenShot(driver,"Reject_Report_In_Prnding_Approval");
 		
 	}
 	

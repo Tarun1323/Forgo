@@ -573,18 +573,18 @@ public class Invoices extends BaseClass {
 		driver.findElement(By.xpath("//span[text()='Sales Order']")).click();
 		driver.findElement(By.xpath("//span[text()='Invoices']")).click();
 		WebElement searchElement=driver.findElement(By.xpath("//input[@class='ant-input ant-input-lg']"));
-		searchElement.sendKeys("07667");
+		searchElement.sendKeys("8465");
 		Thread.sleep(1000);
 		wUtil.takeScreenShot(driver,"Search by RF_num");
 		searchElement.sendKeys(Keys.CONTROL, "a", Keys.DELETE);
 		Thread.sleep(1000);
-		searchElement.sendKeys("anil");
+		searchElement.sendKeys("Nag Test2");
 		Thread.sleep(1000);
 		wUtil.takeScreenShot(driver,"Search by cutomer_name");
 		Thread.sleep(1000);
 		searchElement.sendKeys(Keys.CONTROL, "a", Keys.DELETE);
 		Thread.sleep(1000);
-		searchElement.sendKeys("DC_03");
+		searchElement.sendKeys("SO_1");
 		Thread.sleep(1000);
 		wUtil.takeScreenShot(driver,"Search by DC");	
 	}
@@ -612,9 +612,9 @@ public class Invoices extends BaseClass {
 		Thread.sleep(10000);
 
 }
-
-
 	
+
+
 
 }
 
