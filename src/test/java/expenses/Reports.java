@@ -22,10 +22,18 @@ public class Reports extends BaseClass {
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//div[@class='status status_pending_approval'])[1]")).click();
 		Thread.sleep(1000);
+<<<<<<< HEAD
+		//driver.findElement(By.xpath("//button[@class='approve']")).click();
+		Thread.sleep(1000);
+		wUtil.takeScreenShot(driver,"Approve_Report");
+
+		
+=======
 		//driver.findElement(By.xpath("//button@c[lass='approve']")).click();
 		Thread.sleep(2000);
 		String message = driver.findElement(By.xpath("//span[@class='messageText']")).getText();
 		System.out.println(message);
+>>>>>>> branch 'master' of https://github.com/PurpleplumTech/ems_test_automation
 		
 	}
 	
@@ -43,9 +51,15 @@ public class Reports extends BaseClass {
 		driver.findElement(By.xpath(" //textarea[@class='ant-input reasonTextArea']")).sendKeys("Reject Reason-Automation");
 		//driver.findElement(By.xpath("//span[text()='Confirm']")).click();
 		driver.findElement(By.xpath("//span[text()='Cancel']")).click();
+<<<<<<< HEAD
+		Thread.sleep(1000);
+		wUtil.takeScreenShot(driver,"Reject_Report");
+
+=======
 		Thread.sleep(2000);
 		String message = driver.findElement(By.xpath("//span[@class='messageText']")).getText();
 		System.out.println(message);
+>>>>>>> branch 'master' of https://github.com/PurpleplumTech/ems_test_automation
 	}
 	
 	
@@ -59,6 +73,16 @@ public class Reports extends BaseClass {
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//div[@class='ant-select-selector'])[2]")).click();
 		driver.findElement(By.xpath("//div[text()='Bank Transfer']")).click();
+<<<<<<< HEAD
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[@class='ant-select-selector'])[3]")).click();
+		driver.findElement(By.xpath("(//div[text()='Company'])[2]")).click();
+		driver.findElement(By.xpath("//button[text()='Record Reimbursement']")).click();
+		Thread.sleep(1000);
+		wUtil.takeScreenShot(driver,"Reimburse_Report");
+
+
+=======
 		driver.findElement(By.xpath("(//div[@class='ant-select-selector'])[3]")).click();
 		driver.findElement(By.xpath("(//div[text()='Client'])[2]")).click();
 		driver.findElement(By.name("reference")).sendKeys("Auto Ref");
@@ -68,6 +92,7 @@ public class Reports extends BaseClass {
 		Thread.sleep(2000);
 		String message = driver.findElement(By.xpath("//span[@class='messageText']")).getText();
 		System.out.println(message);
+>>>>>>> branch 'master' of https://github.com/PurpleplumTech/ems_test_automation
 		
 	}
 
@@ -81,6 +106,16 @@ public class Reports extends BaseClass {
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//div[@class='status status_pending_reimbursement'])[1]")).click();
 		Thread.sleep(1000);
+<<<<<<< HEAD
+		//driver.findElement(By.xpath("//button[@class='approve']")).click();
+		driver.findElement(By.xpath("//button[text()='Reject']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//textarea[@class='ant-input reasonTextArea']")).sendKeys("qwert");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='Confirm']")).click();
+		Thread.sleep(1000);
+		wUtil.takeScreenShot(driver,"Reject_Report_In_Prnding_Approval");
+=======
 		driver.findElement(By.xpath("//button[@class='reject']")).click();
 		driver.findElement(By.xpath(" //textarea[@class='ant-input reasonTextArea']")).sendKeys("Reject Reason-Automation");
 		//driver.findElement(By.xpath("//span[text()='Confirm']")).click();
@@ -88,6 +123,7 @@ public class Reports extends BaseClass {
 		Thread.sleep(2000);
 		String message = driver.findElement(By.xpath("//span[@class='messageText']")).getText();
 		System.out.println(message);
+>>>>>>> branch 'master' of https://github.com/PurpleplumTech/ems_test_automation
 		
 	}
 	

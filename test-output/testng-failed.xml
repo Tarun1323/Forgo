@@ -6,8 +6,12 @@
       <class name="expenses.Reports">
         <methods>
           <include name="acConfig"/>
+<<<<<<< HEAD
+=======
           <include name="REP_TC_012"/>
+>>>>>>> branch 'master' of https://github.com/PurpleplumTech/ems_test_automation
           <include name="bsConfig"/>
+          <include name="REP_TC_003"/>
           <include name="bcConfig"/>
           <include name="amConfig"/>
           <include name="asConfig"/>
