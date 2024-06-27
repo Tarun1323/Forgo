@@ -14,7 +14,7 @@ public class Trips extends BaseClass {
 	public void TRIP_TC_001() throws InterruptedException {
 	
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		db.clickOnExpensesLnk();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='Trips']")).click();
 		driver.findElement(By.xpath("//span[text()='My Trips']")).click();
@@ -144,7 +144,7 @@ public class Trips extends BaseClass {
 	@Test(description = "Edit_Trip")
 	public void TRIP_TC_002() throws InterruptedException{
 		
-		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		db.clickOnExpensesLnk();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='Trips']")).click();
 		driver.findElement(By.xpath("//span[text()='My Trips']")).click();
@@ -175,7 +175,7 @@ public class Trips extends BaseClass {
 	@Test(description = "Submit_Trip")
 	public void TRIP_TC_003() throws InterruptedException{
 		
-		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		db.clickOnExpensesLnk();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='Trips']")).click();
 		driver.findElement(By.xpath("//span[text()='My Trips']")).click();
@@ -193,7 +193,7 @@ public class Trips extends BaseClass {
 	@Test(description = "Recall_Trip")
 	public void TRIP_TC_004() throws InterruptedException{
 		
-		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		db.clickOnExpensesLnk();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='Trips']")).click();
 		driver.findElement(By.xpath("//span[text()='My Trips']")).click();
@@ -219,7 +219,7 @@ public class Trips extends BaseClass {
 	@Test(description = "Download_Pdf_In_More_My_Trips")
 	public void TRIP_TC_005() throws InterruptedException {
 
-		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		db.clickOnExpensesLnk();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='Trips']")).click();
 		driver.findElement(By.xpath("//span[text()='My Trips']")).click();
@@ -239,7 +239,7 @@ public class Trips extends BaseClass {
 	@Test(description = "Add_Comments_In_My_Trips")
 	public void TRIP_TC_006() throws InterruptedException {
 		
-		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		db.clickOnExpensesLnk();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='Trips']")).click();
 		driver.findElement(By.xpath("//span[text()='My Trips']")).click();
@@ -261,7 +261,7 @@ public class Trips extends BaseClass {
 	@Test(description = "Add_To_Report_In_My_Trips")
 	public void TRIP_TC_007() throws InterruptedException {
 		
-		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		db.clickOnExpensesLnk();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='Trips']")).click();
 		driver.findElement(By.xpath("//span[text()='My Trips']")).click();
@@ -285,7 +285,7 @@ public class Trips extends BaseClass {
 	@Test(description = "Change_Report_In_My_Trips")
 	public void TRIP_TC_008() throws InterruptedException {
 		
-		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		db.clickOnExpensesLnk();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='Trips']")).click();
 		driver.findElement(By.xpath("//span[text()='My Trips']")).click();
@@ -309,11 +309,11 @@ public class Trips extends BaseClass {
 	@Test(description = "Filters_In_My_Trips")
 	public void TRIP_TC_009() throws InterruptedException, IOException {
 		
-		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		db.clickOnExpensesLnk();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='Trips']")).click();
 		driver.findElement(By.xpath("//span[text()='My Trips']")).click();
-		Thread.sleep(1000);
+		Thread.sleep(1000); 
 		driver.findElement(By.xpath("//span[text()='Add Filters']")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='Approved']")).click();
@@ -359,7 +359,7 @@ public class Trips extends BaseClass {
 	@Test(description = "My_Trips_Search")
 	public void TRIP_TC_010() throws InterruptedException, IOException {
 
-		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		db.clickOnExpensesLnk();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='Trips']")).click();
 		driver.findElement(By.xpath("//span[text()='My Trips']")).click();
@@ -380,7 +380,7 @@ public class Trips extends BaseClass {
 	@Test(description = "My_Trips_Sort")
 	public void TRIP_TC_011() throws InterruptedException, IOException {
 
-		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		db.clickOnExpensesLnk();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='Trips']")).click();
 		driver.findElement(By.xpath("//span[text()='My Trips']")).click();
@@ -408,7 +408,7 @@ public class Trips extends BaseClass {
 	@Test(description = "Delete_Trip")
 	public void TRIP_TC_012() throws InterruptedException{
 		
-		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		db.clickOnExpensesLnk();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='Trips']")).click();
 		driver.findElement(By.xpath("//span[text()='My Trips']")).click();
@@ -432,7 +432,7 @@ public class Trips extends BaseClass {
 	@Test(description = "Cancel_Trip")
 	public void TRIP_TC_013() throws InterruptedException{
 		
-		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		db.clickOnExpensesLnk();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='Trips']")).click();
 		driver.findElement(By.xpath("//span[text()='My Trips']")).click();
@@ -450,7 +450,7 @@ public class Trips extends BaseClass {
 	@Test(description = "Close_Trip")
 	public void TRIP_TC_014() throws InterruptedException{
 		
-		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[6]")).click();
+		db.clickOnExpensesLnk();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='Trips']")).click();
 		driver.findElement(By.xpath("//span[text()='My Trips']")).click();
