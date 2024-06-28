@@ -17,7 +17,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 /**
  * This Class Contains basic configuration annotation for common funtionalities like launch the browser, login and logout etc..
- * @author Nagarjuna
+ * @author Nagarjuna,Tarun
  * 
  */
 
@@ -56,6 +56,7 @@ public class BaseClass {
 		
 		String Email = pUtil.readDataFromPropertyFile("email");
 		String Password = pUtil.readDataFromPropertyFile("password");
+		Thread.sleep(2000);
 		Thread.sleep(1000);
 		lp.login(Email, Password);
 
