@@ -1,10 +1,6 @@
 package forgo.genericUtility;
 
 import java.io.IOException;
-<<<<<<< HEAD
-
-=======
->>>>>>> branch 'master' of https://github.com/PurpleplumTech/ems_test_automation
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -21,7 +17,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 /**
  * This Class Contains basic configuration annotation for common funtionalities like launch the browser, login and logout etc..
- * @author Nagarjuna
+ * @author Nagarjuna,Tarun
  * 
  */
 
@@ -31,8 +27,10 @@ public class BaseClass {
 	public JavaUtility jUtil = new JavaUtility();
 	public PropertyFileUtility pUtil = new PropertyFileUtility();
 	public ExcelFileUtility eUtil = new ExcelFileUtility();
-	public WebDriver driver = null;
-	
+	public WebDriver driver= null;
+	public LoginPage lp;
+	public DashBoard db;
+
 	@BeforeSuite
 	public void bsConfig() {
 		
@@ -48,6 +46,8 @@ public class BaseClass {
 		wUtil.maximiseWindow(driver);
 		wUtil.waitForElementsToLoadInDOM(driver);
 		driver.get(url);
+		lp =new LoginPage(driver);
+		db =new DashBoard(driver);
 		Reporter.log("----browser launched Successfully----", true);
 	}
 	
@@ -56,14 +56,10 @@ public class BaseClass {
 		
 		String Email = pUtil.readDataFromPropertyFile("email");
 		String Password = pUtil.readDataFromPropertyFile("password");
-<<<<<<< HEAD
 		Thread.sleep(2000);
-=======
 		Thread.sleep(1000);
->>>>>>> branch 'master' of https://github.com/PurpleplumTech/ems_test_automation
-		LoginPage lp = new LoginPage(driver);
 		lp.login(Email, Password);
-		
+
 		driver.findElement(By.xpath("(//button[@class='go_to_organisation'])[1]")).click();
 		Reporter.log("----Login Successfull----", true);
 	}
@@ -71,8 +67,8 @@ public class BaseClass {
 	@AfterMethod
 	public void amConfig() throws InterruptedException
 	{
+		Thread.sleep(1000);
 		
-		DashBoard db = new DashBoard(driver);
 		db.logout();
 		Reporter.log("----logout sucessfull----", true);
 	}

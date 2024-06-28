@@ -84,7 +84,6 @@ public class Customers extends BaseClass {
 	public void TC9() throws InterruptedException {
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
-
 		driver.findElement(By.xpath("//button[@class='ant-btn ant-btn-primary ant-dropdown-trigger pp-main-button']")).click();
 
 	}

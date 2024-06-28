@@ -1,6 +1,7 @@
 package sales;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 import org.apache.commons.io.FileUtils;
@@ -108,10 +109,6 @@ public class Invoices extends BaseClass {
 		}
 	}
 
-
-
-
-
 	@Test(description="invoice number")
 	public void TC59() throws InterruptedException {
 		Thread.sleep(1000);
@@ -119,14 +116,16 @@ public class Invoices extends BaseClass {
 
 		driver.findElement(By.xpath("//span[text()='Sales Order']")).click();
 		driver.findElement(By.xpath("//span[text()='Invoices']")).click();
+		driver.findElement(By.xpath("//span[text()='My Invoices']")).click();
 		WebElement searchBox = driver.findElement(By.xpath("//input[@class='ant-input ant-input-lg']"));
-		searchBox.sendKeys("INV_0232");
-		List<WebElement> invoiceElements = driver.findElements(By.xpath("//td[@class='ant-table-cell']"));
+		searchBox.sendKeys("INV_0209");
+		Thread.sleep(1000);
+		List<WebElement> invoiceElements = driver.findElements(By.xpath("//input[@class=\\\"ant-input ant-input-lg\\\"]"));
 
 		boolean invoiceFound = false;
 		for (WebElement invoiceElement : invoiceElements) {
 			String invoiceNumber = invoiceElement.getText();
-			if (invoiceNumber.equals("INV_0232")) {
+			if (invoiceNumber.equals("INV_0209")) {
 				invoiceFound = true;
 				break; 
 			}
@@ -180,10 +179,9 @@ public class Invoices extends BaseClass {
 		driver.findElement(By.xpath("//span[text()='Sales Order']")).click();
 		driver.findElement(By.xpath("//span[text()='Invoices']")).click();
 		driver.findElement(By.xpath("//span[text()='My Invoices']")).click();
-		WebElement searchBox = driver.findElement(By.xpath("//td[@class='ant-table-cell ant-table-cell-row-hover']"));
-		searchBox.sendKeys("5356");
-		List<WebElement> invoiceElements = driver.findElements(By.xpath("//td[@class='ant-table-cell']"));
-		System.out.println(invoiceElements.get(2));
+		WebElement searchBox = driver.findElement(By.xpath("//input[@class=\"ant-input ant-input-lg\"]"));
+		searchBox.sendKeys("111");
+		
 
 	}
 	@Test(description="Date")
@@ -235,7 +233,7 @@ public class Invoices extends BaseClass {
 		System.out.println(invoiceElement.getText());
 	}
 	@Test(description="Send mail")
-	public void TC66() throws InterruptedException {
+	public void TC66() throws InterruptedException, IOException {
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
 		driver.findElement(By.xpath("//span[text()='Sales Order']")).click();
@@ -247,13 +245,7 @@ public class Invoices extends BaseClass {
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//span[text()='Send Email']")).click();
 		Thread.sleep(1000);
-		try {
-			File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-			FileUtils.copyFile(screenshotFile, new File("C:\\Users\\koppu\\Downloads\\Selenium Screen shots\\sendmail.jpg"));
-			System.out.println("Screenshot saved successfully!");
-		} catch (Exception e) {
-			System.out.println("Failed to capture screenshot: " + e.getMessage());
-		}
+		wUtil.takeScreenShot(driver, "Send Mail");
 
 	}
 	@Test(description="clone")
@@ -286,11 +278,15 @@ public class Invoices extends BaseClass {
 		driver.findElement(By.xpath("//span[text()='Invoices']")).click();
 		driver.findElement(By.xpath("//span[text()='My Invoices']")).click();
 		driver.findElement(By.xpath("(//tr[@class='ant-table-row ant-table-row-level-0'])[1]")).click();
+		Thread.sleep(2000);
 		WebElement dropDownsElement = driver.findElement(By.xpath("(//div[@class='ant-space-item'])[1]")); 
 		dropDownsElement.click();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//span[text()='Delete']")).click();
-		driver.findElement(By.xpath("//span[text()='Confirm']")).click();
+		//driver.findElement(By.xpath("//span[text()='Confirm']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='Cancel']")).click();
+
 		Thread.sleep(500);
 		try {
 			File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
@@ -302,7 +298,7 @@ public class Invoices extends BaseClass {
 
 	}
 	@Test(description="Delete")
-	public void TC69() throws InterruptedException {
+	public void TC69() throws InterruptedException, IOException {
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
 		driver.findElement(By.xpath("//span[text()='Sales Order']")).click();
@@ -313,37 +309,33 @@ public class Invoices extends BaseClass {
 		dropDownsElement.click();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//span[text()='Delete']")).click();
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='Confirm']")).click();
-		Thread.sleep(500);
-		try {
-			File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-			FileUtils.copyFile(screenshotFile, new File("C:\\Users\\koppu\\Downloads\\Selenium Screen shots\\delete.jpg"));
-			System.out.println("Screenshot saved successfully!");
-		} catch (Exception e) {
-			System.out.println("Failed to capture screenshot: " + e.getMessage());
-		}
+		Thread.sleep(5000);
+		wUtil.takeScreenShot(driver, "Invoices Approvals"+jUtil.getSystemDateInFormat());
+		Thread.sleep(1000);
 	}
 
 	@Test(description="Approvals")
-	public void TC70() throws InterruptedException {
+	public void TC70() throws InterruptedException, IOException {
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
 		driver.findElement(By.xpath("//span[text()='Sales Order']")).click();
 		driver.findElement(By.xpath("//span[text()='Invoices']")).click();
 		driver.findElement(By.xpath("//span[text()='My Invoices']")).click();
 		driver.findElement(By.xpath("//span[text()='Approvals']")).click();
-		driver.findElement(By.xpath("//div[@class='status status_pending_approval']")).click();
+		driver.findElement(By.xpath("//span[text()='Add Filters']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='Pending approval']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[@class='status status_pending_approval'])[1]")).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//button[@class='approve']")).click();
-		driver.findElement(By.xpath("//button[@class='ant-btn ant-btn-primary pp-main-button']")).click();
-
-		try {
-			File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-			FileUtils.copyFile(screenshotFile, new File("C:\\Users\\koppu\\Downloads\\Selenium Screen shots\\Approve.jpg"));
-			System.out.println("Aprove screenshot saved successfully!");
-		} catch (Exception e) {
-			System.out.println("Failed to capture screenshot: " + e.getMessage());
-		}
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='Cancel']")).click();
+		Thread.sleep(5000);
+		wUtil.takeScreenShot(driver, "Invoices Approvals"+jUtil.getSystemDateInFormat());
+		Thread.sleep(1000);
 	}
 	@Test(description="To Verify invoice  details")
 	public void TC71() throws InterruptedException {
@@ -380,7 +372,7 @@ public class Invoices extends BaseClass {
 		}
 	}
 	@Test(description="To Verify invoice PaymentsMade")
-	public void TC73() throws InterruptedException {
+	public void TC73() throws InterruptedException, IOException {
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
 		driver.findElement(By.xpath("//span[text()='Sales Order']")).click();
@@ -388,16 +380,11 @@ public class Invoices extends BaseClass {
 		driver.findElement(By.xpath("//span[text()='My Invoices']")).click();
 		driver.findElement(By.xpath("(//tr[@class='ant-table-row ant-table-row-level-0'])[1]")).click();
 		driver.findElement(By.xpath("//li[contains(text(),'Payment Made')]")).click();
-		try {
-			File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-			FileUtils.copyFile(screenshotFile, new File("C:\\Users\\koppu\\Downloads\\Selenium Screen shots\\invoice-PaymentsMade.jpg"));
-			System.out.println("Aprove screenshot saved successfully!");
-		} catch (Exception e) {
-			System.out.println("Failed to capture screenshot: " + e.getMessage());
-		}
+		Thread.sleep(1000);
+		wUtil.takeScreenShot(driver, "Payments Made"+jUtil.getSystemDateInFormat());
 	}
 	@Test(description="To Verify invoice Comments")
-	public void TC74() throws InterruptedException {
+	public void TC74() throws InterruptedException, IOException {
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
 		driver.findElement(By.xpath("//span[text()='Sales Order']")).click();
@@ -408,16 +395,10 @@ public class Invoices extends BaseClass {
 		driver.findElement(By.xpath("//input[@class='ant-input'] ")).sendKeys("xcb");
 		driver.findElement(By.xpath("//button[@class='ant-btn ant-btn-default formButton ml1'] ")).click();
 		Thread.sleep(1000);
-		try {
-			File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-			FileUtils.copyFile(screenshotFile, new File("C:\\Users\\koppu\\Downloads\\Selenium Screen shots\\invoice-Comments.jpg"));
-			System.out.println("Aprove screenshot saved successfully!");
-		} catch (Exception e) {
-			System.out.println("Failed to capture screenshot: " + e.getMessage());
-		}
+		wUtil.takeScreenShot(driver, "invoice Comments"+jUtil.getSystemDateInFormat());
 	}
 	@Test(description="To Verify invoice History")
-	public void TC75() throws InterruptedException {
+	public void TC75() throws InterruptedException, IOException {
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
 		driver.findElement(By.xpath("//span[text()='Sales Order']")).click();
@@ -425,16 +406,12 @@ public class Invoices extends BaseClass {
 		driver.findElement(By.xpath("//span[text()='My Invoices']")).click();
 		driver.findElement(By.xpath("(//tr[@class='ant-table-row ant-table-row-level-0'])[1]")).click();
 		driver.findElement(By.xpath("//li[contains(text(),'History')]")).click();
-		try {
-			File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-			FileUtils.copyFile(screenshotFile, new File("C:\\Users\\koppu\\Downloads\\Selenium Screen shots\\invoice-History.jpg"));
-			System.out.println("Aprove screenshot saved successfully!");
-		} catch (Exception e) {
-			System.out.println("Failed to capture screenshot: " + e.getMessage());
-		}
+		Thread.sleep(1000);
+		wUtil.takeScreenShot(driver, "invoice history"+jUtil.getSystemDateInFormat());
+
 	}
-	@Test(description="To Verify Filters")
-	public void TC76() throws InterruptedException {
+	@Test(description="To Verify pending approval filters")
+	public void TC76() throws InterruptedException, IOException {
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
 		driver.findElement(By.xpath("//span[text()='Sales Order']")).click();
@@ -443,19 +420,201 @@ public class Invoices extends BaseClass {
 		driver.findElement(By.xpath("//span[text()='Add Filters']")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='Pending approval']")).click();
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("document.body.style.zoom='80%'");
 		Thread.sleep(1000);
-		try {
-			File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-			FileUtils.copyFile(screenshotFile, new File("C:\\Users\\koppu\\Downloads\\Selenium Screen shots\\invoice-Pending Approval.jpg"));
-			System.out.println("Aprove screenshot saved successfully!");
-		} catch (Exception e) {
-			System.out.println("Failed to capture screenshot: " + e.getMessage());
-		}
-
-
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("document.querySelector(\"div[style$='overflow: auto hidden;']\").scrollLeft= 150");
+		Thread.sleep(1000);
+		wUtil.takeScreenShot(driver, "Pending Approval");
+		
 	}
+	@Test(description="To Verify approved filters")
+	public void TC77() throws InterruptedException, IOException {
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
+		driver.findElement(By.xpath("//span[text()='Sales Order']")).click();
+		driver.findElement(By.xpath("//span[text()='Invoices']")).click();
+		driver.findElement(By.xpath("//span[text()='My Invoices']")).click();
+		driver.findElement(By.xpath("//span[text()='Add Filters']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='Approved']")).click();
+		Thread.sleep(1000);
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("document.querySelector(\"div[style$='overflow: auto hidden;']\").scrollLeft= 150");
+		Thread.sleep(1000);
+		wUtil.takeScreenShot(driver, "Approved");
+		
+	}
+
+	@Test(description="To Verify Overdue filters")
+	public void TC78() throws InterruptedException, IOException {
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
+		driver.findElement(By.xpath("//span[text()='Sales Order']")).click();
+		driver.findElement(By.xpath("//span[text()='Invoices']")).click();
+		driver.findElement(By.xpath("//span[text()='My Invoices']")).click();
+		driver.findElement(By.xpath("//span[text()='Add Filters']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='Overdue']")).click();
+		Thread.sleep(1000);
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("document.querySelector(\"div[style$='overflow: auto hidden;']\").scrollLeft= 150");
+		Thread.sleep(1000);
+		wUtil.takeScreenShot(driver, "Overdue");
+		
+	}
+	
+	@Test(description="To Verify Rejected filters")
+	public void TC79() throws InterruptedException, IOException {
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
+		driver.findElement(By.xpath("//span[text()='Sales Order']")).click();
+		driver.findElement(By.xpath("//span[text()='Invoices']")).click();
+		driver.findElement(By.xpath("//span[text()='My Invoices']")).click();
+		driver.findElement(By.xpath("//span[text()='Add Filters']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='Rejected']")).click();
+		Thread.sleep(1000);
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("document.querySelector(\"div[style$='overflow: auto hidden;']\").scrollLeft= 150");
+		Thread.sleep(1000);
+		wUtil.takeScreenShot(driver, "Rejected");
+		
+	}
+	@Test(description="To Verify Unsubmitted filters")
+	public void TC80() throws InterruptedException, IOException {
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
+		driver.findElement(By.xpath("//span[text()='Sales Order']")).click();
+		driver.findElement(By.xpath("//span[text()='Invoices']")).click();
+		driver.findElement(By.xpath("//span[text()='My Invoices']")).click();
+		driver.findElement(By.xpath("//span[text()='Add Filters']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='Unsubmitted']")).click();
+		Thread.sleep(1000);
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("document.querySelector(\"div[style$='overflow: auto hidden;']\").scrollLeft= 150");
+		Thread.sleep(1000);
+		wUtil.takeScreenShot(driver, "Unsubmitted");
+		
+	}
+	
+	//Approvals from Invoices
+	
+	
+	
+	@Test(description="To Verify pending approval filters")
+	public void TC81() throws InterruptedException, IOException {
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
+		driver.findElement(By.xpath("//span[text()='Sales Order']")).click();
+		driver.findElement(By.xpath("//span[text()='Invoices']")).click();
+		driver.findElement(By.xpath("//span[text()='Add Filters']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='Pending approval']")).click();
+		Thread.sleep(1000);
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("document.querySelector(\"div[style$='overflow: auto hidden;']\").scrollLeft= 150");
+		Thread.sleep(1000);
+		wUtil.takeScreenShot(driver, "Pending Approval-Approvals");
+		
+	}
+	@Test(description="To Verify pending approval filters")
+	public void TC82() throws InterruptedException, IOException {
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
+		driver.findElement(By.xpath("//span[text()='Sales Order']")).click();
+		driver.findElement(By.xpath("//span[text()='Invoices']")).click();
+		driver.findElement(By.xpath("//span[text()='Add Filters']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='Approved']")).click();
+		Thread.sleep(1000);
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("document.querySelector(\"div[style$='overflow: auto hidden;']\").scrollLeft= 150");
+		Thread.sleep(1000);
+		wUtil.takeScreenShot(driver, "Approved-Approvals");
+		
+	}
+	@Test(description="To Verify pending approval filters")
+	public void TC83() throws InterruptedException, IOException {
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
+		driver.findElement(By.xpath("//span[text()='Sales Order']")).click();
+		driver.findElement(By.xpath("//span[text()='Invoices']")).click();
+		driver.findElement(By.xpath("//span[text()='Add Filters']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='Overdue']")).click();
+		Thread.sleep(1000);
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("document.querySelector(\"div[style$='overflow: auto hidden;']\").scrollLeft= 150");
+		Thread.sleep(1000);
+		wUtil.takeScreenShot(driver, "Overdue-Approvals");
+		
+	}
+	@Test(description="To Verify pending approval filters")
+	public void TC84() throws InterruptedException, IOException {
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
+		driver.findElement(By.xpath("//span[text()='Sales Order']")).click();
+		driver.findElement(By.xpath("//span[text()='Invoices']")).click();
+		driver.findElement(By.xpath("//span[text()='Add Filters']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='Rejected']")).click();
+		Thread.sleep(1000);
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("document.querySelector(\"div[style$='overflow: auto hidden;']\").scrollLeft= 150");
+		Thread.sleep(1000);
+		wUtil.takeScreenShot(driver, "Rejected-Approvals");
+		
+	}
+	@Test(description="To Verify Approval search for Invoices")
+	public void TC85() throws InterruptedException, IOException{
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
+		driver.findElement(By.xpath("//span[text()='Sales Order']")).click();
+		driver.findElement(By.xpath("//span[text()='Invoices']")).click();
+		WebElement searchElement=driver.findElement(By.xpath("//input[@class='ant-input ant-input-lg']"));
+		searchElement.sendKeys("8465");
+		Thread.sleep(1000);
+		wUtil.takeScreenShot(driver,"Search by RF_num");
+		searchElement.sendKeys(Keys.CONTROL, "a", Keys.DELETE);
+		Thread.sleep(1000);
+		searchElement.sendKeys("Nag Test2");
+		Thread.sleep(1000);
+		wUtil.takeScreenShot(driver,"Search by cutomer_name");
+		Thread.sleep(1000);
+		searchElement.sendKeys(Keys.CONTROL, "a", Keys.DELETE);
+		Thread.sleep(1000);
+		searchElement.sendKeys("SO_1");
+		Thread.sleep(1000);
+		wUtil.takeScreenShot(driver,"Search by DC");	
+	}
+	@Test(description="To Verify sort invoices")
+	public void TC86() throws InterruptedException, IOException{
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[contains(@class,'menu-item')])[5]")).click();
+		driver.findElement(By.xpath("//span[text()='Sales Order']")).click();
+		driver.findElement(By.xpath("//span[text()='Invoices']")).click();
+		driver.findElement(By.xpath("//span[@class='anticon anticon-ellipsis pp-icon-25']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='Date']")).click();
+		Thread.sleep(1000);
+		wUtil.takeScreenShot(driver,"Approval-sort  by date");
+		driver.findElement(By.xpath("//span[@class='anticon anticon-ellipsis pp-icon-25']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='Due Date']")).click();
+		Thread.sleep(1000);
+		wUtil.takeScreenShot(driver,"Approval-sort  by Due Date");
+		driver.findElement(By.xpath("//span[@class='anticon anticon-ellipsis pp-icon-25']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[text()='Amount']")).click();
+		Thread.sleep(1000);
+		wUtil.takeScreenShot(driver,"Approval-sort  by amount");
+		Thread.sleep(10000);
+
+}
+	
+
+
 
 }
 
